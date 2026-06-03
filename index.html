@@ -2,699 +2,531 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>KICK THE HABIT — 習慣断ちトラッカー</title>
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTE0IiBmaWxsPSIjZjVmMGU4Ii8+CiAgPGltYWdlIGhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvNGdIWVNVTkRYMUJTVDBaSlRFVUFBUUVBQUFISUFBQUFBQVF3QUFCdGJuUnlVa2RDSUZoWldpQUg0QUFCQUFFQUFBQUFBQUJoWTNOd0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFRQUE5dFlBQVFBQUFBRFRMUUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBbGtaWE5qQUFBQThBQUFBQ1J5V0ZsYUFBQUJGQUFBQUJSbldGbGFBQUFCS0FBQUFCUmlXRmxhQUFBQlBBQUFBQlIzZEhCMEFBQUJVQUFBQUJSeVZGSkRBQUFCWkFBQUFDaG5WRkpEQUFBQlpBQUFBQ2hpVkZKREFBQUJaQUFBQUNoamNISjBBQUFCakFBQUFEeHRiSFZqQUFBQUFBQUFBQUVBQUFBTVpXNVZVd0FBQUFnQUFBQWNBSE1BVWdCSEFFSllXVm9nQUFBQUFBQUFiNklBQURqMUFBQURrRmhaV2lBQUFBQUFBQUJpbVFBQXQ0VUFBQmphV0ZsYUlBQUFBQUFBQUNTZ0FBQVBoQUFBdHM5WVdWb2dBQUFBQUFBQTl0WUFBUUFBQUFEVExYQmhjbUVBQUFBQUFBUUFBQUFDWm1ZQUFQS25BQUFOV1FBQUU5QUFBQXBiQUFBQUFBQUFBQUJ0YkhWakFBQUFBQUFBQUFFQUFBQU1aVzVWVXdBQUFDQUFBQUFjQUVjQWJ3QnZBR2NBYkFCbEFDQUFTUUJ1QUdNQUxnQWdBRElBTUFBeEFEYi8yd0JEQUFVREJBUUVBd1VFQkFRRkJRVUdCd3dJQndjSEJ3OExDd2tNRVE4U0VoRVBFUkVURmh3WEV4UWFGUkVSR0NFWUdoMGRIeDhmRXhjaUpDSWVKQndlSHg3LzJ3QkRBUVVGQlFjR0J3NElDQTRlRkJFVUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDcvd0FBUkNBSDBBZlFEQVNJQUFoRUJBeEVCLzhRQUhBQUJBUUFDQXdFQkFBQUFBQUFBQUFBQUFBRUZCZ01FQndnQy84UUFSQkFCQUFFREFnSUZCZ3NHQlFRREFBQUFBQUVDQXdRRkVTRXhCZ2NTVVpFVFFXRnhnYUVpSXpJMVFrTlNjNUt4MFFnVU0ySnl3UlZUWTNXQ0ZqUTJzaVEzay8vRUFCc0JBUUFDQXdFQkFBQUFBQUFBQUFBQUFBQUJCUUlEQkFZSC84UUFNUkVCQUFJQ0FBTUZCd01GQVFFQUFBQUFBQUVDQXhFRUJTRVNNVEp4b1FZelFXR1J3ZEZSc2ZBVEZDS0I0VkpDLzlvQURBTUJBQUlSQXhFQVB3RDZsQWNqY0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUUpCZGpZTklMc2JCcEJkallOSUxzYkJwQmRqWU5JTHNiQnBCZGpZTklMc2JCcEJkallOSUxzYkJwQmRqWU5JTHNiQnBCZGpZTklMc2JCcEJkallOSUxzYkJwQmRqWU5JTHNiQnBCZGpZTklMc2JCcEJkallOSUxzZ0FBZ0FBQUFBQUFBQUFBV0VXQk1BQWtBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUlVFU0FDQUFBQUFBQUFBQUFBQ1lSWUV3QUNRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBQUFBQUFBQUFBQUFBQUFHbWRZUFdKcEhST1p3NmFQOFExV1kzakZ0MWJSYjdwdVZmUjlYTnc5Ym5UZU9pbWwwNG1uMTB6ck9aVFBrZCtNV0tPVTNKanY4MFIzK3A4NlhibHk3ZXJ2WHJsZHk3Y3FtdXV1dWQ2cXFwNXpNK2VYQnhYRjlpZXhUdmVtNUp5T09Lait2bjhId2o1ZStmdTNuVU90cnBybFg1dVdjekZ3cU4rRnV4ajB6RVI2NnQ1bGwralhYTnJHTmVwdGRJTU96bjQwenRWZHNVK1R2VWVuYjVOWHE0UExSWHh4R1dKMzJwZXN2eWpncjA3RTRvLzFHcCt2ZSt1ZEMxZlRkYzB5MXFXbFpWR1RpM09WVWNKcG56MDFSenBtTzZYZGZMZlFEcGJuZEVOYWpNeCsxZHc3c3hUbVkyL0M3UjN4M1ZSNXA5ajZjMHpPeE5UMDdIMUhBdlUzc1hJdHhjdFZ4NTRudjdwODB3dHVHNGlNMGRlOTRUbS9Lcjh2eWRPdEo3cCswL1A5M1lBZEtvQUFBQUFBQUFBQUFBQUFBQUFBRVZCRWdBZ0FBQUFBQUFBQUFBQVdFV0JNQUFrQUFBQUFBQUFBQUFBQUFBQWRUVzlTeE5HMGZMMVhPcjdPUGkycHVWOTg3Y3FZOU16dEh0ZHQ0MSswVjBobWJ1SDBYeHJud2FZakt6TnA1ejlYVCtkWGcwNTh2OUtrMmQzTGVEbmpPSnJpK0h4OHZqL1AxZVhkSTlZek5mMXpLMWpQcTN2NU5mYTdPL0NpbjZORWVpSTRNZUNobVptZHkrcDBwV2xZcldOUkFBaGtQVlAyZitsVTRXcDFkRnMyNS84QUd6S3B1WWMxVDhpOXR4b2owVlI3NDlMeXQrN04yN2ozN2VSajF6YnZXcTRydDF4enBxaWQ0bnhiTVdTY2RvdERrNDdoS2NaZ3RodDhmU2ZoTDdER0k2RjY1YjZTZEY4SFdiZTBWWDdlMTZtUG9YYWVGY2VQNXN1OUJXMFdqY1BsV1RIYkhlYVdqckhTUUJMQUFBQUFBQUFBQUFBQUFBQUFSVUVTQUNBQUFBQUFBQUFBQUFCWVJZRXdBQ1FBQUFBQUFBQUFBQUFBQngwWDdOVTdSY2pmMDhINHpidms3WFppZmhWZTZHT2FNbWJzenFHVVYyeTErOVp4c2U3azVGVVUyYk5GVnk1VjNVeEc4KzZIeVYwaTFXOXJtdjUyc1pFejI4dTlWY2lQczAvUnA5a2JROXc2NDlXdWFaMEV5Yk5xN1ZUZHo2NmNXbUluNk04YS9kSHZlQUs3ak0zYm1LL285dDdMY0oyTWQ4ODk4OUk0bzcvWDlnQnhQVmdBQUFQWGYyY2RibWpOMUhvNWRyK0Rkby9lOGVKKzFUd3JqdzJuMlBhWHlqMEsxZXJRdWx1bDZwRXpGTm5JcGk1NmFLdmcxUjRUTDZ2bmJmaE1USG1tUFBIZXQrQnlkckgyZjBmUC9hYmhmNlhGUmtqdXZIckhTZnNnRHVlY0FBQUFBQUFBQUFBQUFBQUFFVkJFZ0FnQUFBQUFBQUFBQUFBV0VXQk1BQWtBQUFBQUFBQUFBQUFKbUtZbXFaMmlPTWpxYWhkMmlMVk0rbXBoZTNaamFZamJxM3JrM2JrMXo1K1hvaCtBVjh6dWR0cng3OW9EUDdlcmFacGRNOExOaXEvWEhwcW5hUGRIdmVaTnM2M3NtY3JyRTFQZWQ0c2VUc1UrcW1pUDFhbTRNazd0TDZieXJGL1M0UEhYNWIrdlg3Z0RCWUFBQUFKVkVWVXpUUEtZMmZWZlYvcVU2djBJMGZQcXE3VmRlTFRUY24rYW40TSsrSHlxOS84QTJmZFFvdWRBcXNXNVh0VmpadHlpTi9zMWJWUi9kMjhEZnM1TlQ0WG12YWpEMitGcmYvelA3L3lIbzRSTVRHOFRFeDZCY1BBZ0FBQUFBQUFBQUFBQUFBQUNLZ2lRQVFBQUFBQUFBQUFBQUFMQ0xBbUFBU0FBQUFBQUFBQUFBQS9OMnVMZHVhNTgzdllxcXFhcXBxcTV6Tzh1eG4zZTNjOG5FL0JwNSt0MW5GbXYycDFEWldOQ3h6aEJwWlBtN3JDN1gvWFd0ZHJuKzkxZjJZSnVIWEpnMVlmV0JtWE50cU15aWpJb256VHZHMCsrbHA2dnRHclMrcDhEZUw0Tmp0SC9BSmo5Z0JpNmdBQUFCN0wrejUyditudFgzNWZ2dEczL0FPZkY0MDkzNmtjS3JFNkMyNzFkTzFXWmtWM3YrUHlhZnlsdHcrTlJlMGQ0cndVeFB4bVB6OW00VTFWVXp2VFZOTStpWFBSbDNxZWN4WEhwaDF4M1JhYTkwdm4rb2wzNk15M1B5NmFxZmU1NkxsdXY1RmNUN1dKRzZ2RVdqdll6U0daUmpLTDk2amxYTXgzVHhjOUdiUDFsSHRwYmE1Nnozc1pyTHVEaW95Yk5mS3ZhZTZlRGw5TU4wV2llNWlBSkFBQUFBQUFBQkZRUklBSUFBQUFBQUFBQUFBQUZoRmdUQUFKQUFBQUFBQUFBQUhGbFhmSldwbVBsVHdoeXNabFhmSzNabVBreHdocXkzN05XVlkzTGlBY0xZQUE4KzY0TkJxMURRTFdzWTFFMVg5T21mS1JFY1pzMWM1OWs3VDR2RW4xZFZUVFZUTkZkTk5kTlVURlZOVWJ4TVR6aVhnZldiMEx2ZEdzNnJOd3FLcm1rWDYvaTZvNC91OVUvUXE5SGRMbHowNjlxSHNmWjNtTmV6L2E1SjYvL0FEK0dtZ09kNndBQUJiZEZkeTVUYnRVVlhMbGRVVTBVVXh2VlZNOG9pUFBJTzNvbW1aV3M2dmk2WGgwNzNzbTVGRVQ5bVBQVlBvaU41ZlRtbjRsakF3TWZBeGFlell4N1ZOcTNIb2lObW5kVlhReWVqbUZWcUdvMFIvaTJUUnRWVHovZDdmMkk5TStmd2J1N01OT3pHNWVBNTl6R3ZGNVlwam4vQUJyNnordjRBRzVRZ0FBQUQ5VVYxMGZJcW1uMVMvSWIwT3pSbVhZK1ZGTlVlRXVlak10VmZLM29uMDhXUEd5dWE0SW1zTXZSWFJYRzlOVVQ2cFZpOFgvdWJmOEFVeWpxeFpPM0cydTBhQUcxQUFBQUFpb0lrQUVBQUFBQUFBQUFBQUFDd2l3SmdBRWdBQUFBQUFBQUpWVkZOTTFWVHRFUnZJT0RQdTlpMzVPbWZoVmMvVXg3OTNhNXVYSnJueis1K0Zta3YyN2JiWWpVQURCSUFBL0dSWnRaR1BjeDhpMVJlczNhWnB1VzY2ZDZhb256VEQ5aUV4T3VyeWZwZjFUMWR1dks2TDNhZXpQR2NLL1h0dDZLSzUvS2ZGNXRxdWs2cnBOMmJXcDZkbFlsY2Y1bHVZajJUeWw5UWxjUlhSTkZkTVYwVHpwcWplSjlrdE5zRVQzZEhvZUU5bytJd3gyY3NkdVBwUDEvNCtUNHVXNTVWMHo3VnBxcHFxN05FOXFydXA0eStvTDJoNkhlcTdWM1JkT3JxNzV4cWYwYzJMcCtuWWt4T0xwK0hqekhLYmRpbW1mR0kzWWYyOC9xc1o5cWNldW1LZCtmL0h6OTBlNkRkSnRicXBxeDlQcnhzZWVlUmxSTnVpSTlFVHhuMlE5ZjZEOUJOSjZNYlpXODV1cFRHMDVOeW5hS1BSUlQ5SDE4MjJUTXp6bVpSdHBpclhxcE9PNTN4UEZ4MlBEWDlJKzhnRGFwd0FBQVNBQ0FBU0FsZGRGRWIxMVUweDZaUk14RWJraU45emx4dis1dC93QlRLTUhpWnRtck9zV3FPMVZOVmNSdnR3Wnh2NExOankxbnNUdlVzY3RMVW1PMUdnQjJ0UUFBQUFpb0lrQUVBQUFBQUFBQUFBQUFDd2l3SmdBRWdBQUFBQUFBRHA2aGQ0eGFwbmx4cWRtL2NpMWFtdWZaSGZMRnpNMVRNenhtZU11ZlBmVWRtR2RZK0tBT1JtQUFBQUFBQUFBQUFDUUFRQUFBL055N2J0eHZjcnBwOWNzYldpc2JtZFFtSW1aMUQ5RHAzZFJ0VThMZEZWYzk4OElkUzdtNUZmS3FLSTdxVmRtNXR3MkxwRTlxZmwrZTUxVTRQTGJ2alRLM0s2TGNiM0s2YWZYTHEzZFFzMDhMZE5WYytFTVpNek03ek16UGZLS25OenZOYnBqaUk1Wi9IbzdLY0JTUEZPM2F1NTJSWHdwbUtJL2xkYXFacW5lcVptZStaUVZXWFBselR2SmFaZGRNZGFlR05PMXBQenJpL2V3MjVxT2svT3VMOTdEYm5yZlpuM0YvUDdRcWVaKzhyNUFEMGl0QUFBQUVWQkVnQWdBQUFBQUFBQUFBQUFXRVdCTUFBa0FBQUFBQUJ3NWQzeVZyaFB3cXVFSXRNVmpja2RYVnpidmxMblppZmcwKytYWEJYV3ROcDNMZEVhQUVBQUFBQUFBQUFBQURqdTM3TnI1ZHltSjd0K0xHMTYwamRwMURLS3phZFE1QjBidW8weHd0VzVxOU5YQjFMdVhrWE9FM0pwanVwNEt6TnpqaHNmU3M5cWZsK1hWVGdzdHUvb3kxMjlhdFI0WmNwcDlycTNkUnR4d3RVVFY2WjRReGdxYzNPODkrbElpdnJQOEFQOU95bkFZNitMcTdGM015TG5EdDltTzZuZzRKNHp2UEdVRlhrelpNczd2YVpkZGFWcEdxeG9BYW1RQUFBRHRhVDg2NHYzc051YWpwUHpyaS9ldzI1N1AyWjl4ZnorMEtibWZ2SytRQTlJclFBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBQUFKNFJ2UEpqTW03NVc3TlhtNVI2bmF6N3ZabzhsVFBHcm42blFjbWUrNTdNTmxZK0lBNTJRQWhJQWxBQUFLNGJ1VFl0L0t1UnYzUnhsaGZKVEhHN3pxUG15cldiVHFJMjVWWTY3cVhtdFcvYlYranEzY20vZCtYY25idWpoQ3J6YzU0Zkgwci9sTHJwd09TM2YwWmE3a1diWHk3a2I5MGNaZFM3cU1jclZ2ZjAxTWNLbk56cmlMOUthckRzcHdPT3ZmMWM5M0t2M1BsWEppTzZuaERnQldaTWw4azd2TzUrYnFyV3RZMVdOQURXeUFBQUFBQUFTN1hSYXR6Y3UxMFc2STUxVjFSVEVlMlFVYTNxM1RqbzVwL2Fwak5uTXV4OURHcDdmSCtyazFMVmVzM1VMdTlHbWFmWnhhZk5jdlQ1U3Z3NFJEcXg0Rm15ZDFmcjBkbUxnTStYdXJyejZQVzlKaVoxVEZuYmhGMkczUG1yb05yZXI2cDFsZEhKMURVY2kvVC9pTnY0RTFiVVJ6K2pIQjlLdlk0aTRhZUh3Mmlaenp1ZnNwT2U4TGJoc3RLMm5lNCs4Z0M4VVlBQUFBaW9Ja0FFQUFBQUFBQUFBQUFBQ3dpd0pnQUVnQUFBQ1YxUlRSTlU0b2pkWDR2L3dMbjlNb21kUVF4bHl1cTVYTmRYT1g1Qlc0MWJnQUFKNFJ2UENIQmR6TWUzd201MnA3cWVMWGt5MHhSdTh4SG16clMxNTFXTnVjWTY0cU5jOExWdUtmVFZ4ZFM3ZXUzZmwzS3A5Ry9CVlp1ZFlLZEtSTnZTUDUvcDEwNEhKYnhkR1d1NVZpM3dxdVJNOTFQRjFidW96UEMxYmlQVFV4NHFzM09PSXlkSy80eDh2eTdLY0ZqcjM5WExkeUwxMzVkeXFZN280UTRnVmw3MnZPN1R1WFZXc1ZqVVFBTUVnQUFBQUFBc2NlVHE2anFPbjZkYm01cUdkajR0TWY1bGNSUGh6bE1STXpxRXhFMm5VT3lOS3RYRI0wYkczcHdMR1JuMXh5cTI0blI0enhud2FucXZXRDBoemQ2Y2V1enA5dWVVV0tkNnZ4VHhkbVBsK2ZKOExpYnV4Y3Q0akpITmVmODI5ZHk4akh4TE0zc3ZJdFk5dU9QYXV3eFRIdmF0cXZXRjBld3Q2TWV1OXFGeVBOWXAycC9GTHlMS3Y1R1hkbTlsNUYzSXVUeDdWMnVhcDk3aldHUGxWSXVjN1dXTG1HT091U2Qralp0VzZ5TmF5ZDZjWXpqNEZFL1MyOHBYNHp3andkcXFPb1orb3pQS2FobTVHVlYvcVZ6TUVISTFY4bTQ4R1BGNEs2V09MaDhXTHdWMFJ3amFBbmh6ZG5UdE8xRFViUlc5UHdZaktxL3dCT2laaHg1UTJ6TVJHNWJAZ01qdGN4MVkvL0FHNTBJ' +
+'L3hDMy9kOVN2Qk9yam9Kck9KMHQ0ZlZOUXJ4OGFuR3lxYnZrdTEyNjZ0dCtIRGhEM3RaOHJ5MHlVdDJKM3FQczRGN1Q1YVplSXAySjNxUHZJQXMzbWdBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBSDR2L3dBQzUvVEw5dUxNcWlqRXZWekc0VTBUTEk0eEZabVUxamM2WXduYUkzbVlpTytXTXU2amRxNFc0YWFJN3VjdXJjdVhMazczeUs2cXZYTHl1Ym5lR25USEUyOUkvbitscFRnTHo0cDB5dDNOeDdmMCszUGRUeGRXN3FOeWVGdWltbU8rZU11aUtGTnpmMCt3aVNKN01mTDh1eW5CWXE5OGJjbHk3ZHV6OFpjcXE5Y3VNRmJhMXJUdTA3bDB4RVJHb0FHS1FBQUFBQUFYYWR0OXVFTU5xM1NqUU5MM2pMMU96NVNQcXJVK1VyOElaVnBhODZyRzJkS1d2T3F4dG1GaUptZG9qZVhuT3E5WjFNYjBhVHBjMWQxekpxMmo0TWZxMUhWK2xuU0hWSXFweU5TdVc3ZFhPM1krTHA5M0gzdTdGeTNOZnhkSGZpNVZudjR1ajJQVnRiMGpTcVpuUDFISHMxZlk3ZTlYNFk0dFMxWHJOd0xlOUdsNmZmeWF2TmN2VDVPbnc0eTh1MjR6UE9aNXpQT1JZWStWNHErS2QraXl4Y3B3MThjNzlHeWF0MDQ2U2FoMnFQMzJNUzFQME1hbnNlTlhQM3RjdTFWWGJrM0x0ZFZ5dWVkVmRVMVRQdGxCMzB4VXh4cXNhV09QRlRIR3FSb0VtWWlONW5aa05LMFhWOVZxaU5QMDdJdnhQMDRwMm9qMTFUd1pXdEZZM002Wld0RlkzYWRRNkJQRG0zM1NlclBPdTdWYXBuMnNXbnowV1k4cFg0OHZ6YmZwUFFubzVwMDAxVTRQNzFjajZ6SnE3Yzcrcmw3bkRsNWpocDNUdnljR1htZURIMGlkejhuaitsNlhxV3FWOWpUOERJeWY1cUtQZ3g3ZVRidEo2dE5VdmRtdlU0eXhoMFR6b3QvR1YvcEQxU21JcG9vaWltbW1pT1ZOTWJSSHNnVitYbW1XM2dqWHFyTXZOc3R2Qkd2VnJPazlCZWptbjltdXZFcXpic2ZUeWF1MUcvb3BqZzJXMVJSWnR4YnMwVVc3Y2NxYUtZcGlQWkNqZ3ZrdmtuZHAycnNtVytTZDNuYnRhVDg2NHYzc051YWpwUHpyaS9ldzI1Ni8yWjl4ZnorMEtMbWZ2SytRQTlJclFBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBSEJxWHpkay9kVmZrNTNCcVh6ZGsvZFZmazA0VDdtL2xQN004ZmpqemFjQStYUFVBQUFBQUFBL0dSZHRZMXFidVJkdDJiY2M0cmxVVXg0eTFuVmVuM1J6QjNvczVGek91eDlISHAzcC9GTzBObVBGZkpPcVJ0dHg0Y21XZFVqYmFTcVlwb211cXFLYVk1MVZUdEVlMTVUcXZXVnExL2VqVHNUSHdxUE5YWDhaWCtrZURVOVQxVFV0VHI0V29aK1JrL3kxMXoyZkRrNzhmSzh0dkhPdlZZNHVVWmJlT2RlcjJIVnVtblJ6VFpxcHJ6NHlMa2ZWNDBlVW5mMTh2ZTFMVmVzM0t1YjA2VnB0dXhIbXVaRlhicThJNFBQNDRjSUZoajViaHAzOVZqaTVYZ3AzeHZ6WlBWZWtHdDZyTS92MnA1RnlpZnE2YXV4UkgvR09ERnhFUnlqWlIyMXJXc2FyR25mV2xhUnFzYUJKbUk1enpaZlNlald2YXJ0T0ZwbDZxM1AxdHlPeFJIdGt0ZXRJM2FkRjcxcEc3VHFHSlNaaUkzbVlpSG8yazlXTmRXMWVyYW5GRWVlM2pVN3orS2YwYmZwSFJUby9wY3hWamFiYnJ1Unl1My9qSy9mdzl6aHk0eXcwOFBWWDVlYVlLZUhxOGQwalFOYTFXWS9jTk55TGxFL1dUVDJhUEdlRGI5SjZzY3F2YXZWdFN0Mlk0OXJIanQxZmluZzlPMzRSSG1qbEhjaXZ5OHp5MjhQUlc1ZWJacitEb3dPa2REdWp1bVRGZHJUcUw5MlByY2lmS1Q0VHdqd1o2T0ZNVXhFUlRIS0k0UkFPQzk3WG5kcDJycjVMNUozZWRnREJnQUFBQTdXay9PdUw5N0RibW82VDg2NHYzc051ZXo5bWZjWDgvdENtNW43eXZrQVBTSzBBQUFBUlVFU0FDQUFBQUFBQUFBQUFBQllSWUV3QUNRQUFBQndhbDgzWlAzVlg1T2R3YWw0M1pQM1ZYNU5QRSs1djVUK3pQSDQ0ODJuQXNSTXp0RWJ5K1hQVUlPbHFtcjZYcGRFMWFocUdQamVpdXY0VSt5T0xVOVc2eTlMczcwNmJoMzh5cnpWMS9GMGZxM1krSHk1ZkJYYmZpNGJMbDhGZHQ1Y0dkbVllQmE0cm5aZGpHbzc3dGNVdklOVjZlZEk0L2Vtakpvd2JjL1J4cWRwL0ZQRnJOKzVjdjNadTM3dHk5Y25uWGNxbXFmR1ZoajVWZWZIT2xsaTVQZWV1UzJ2SjYzcXZXTm9XSnZSaDBaR29YSSt4VDJLUHhUK2pVdFY2eE5meTk2Y09MR24wVC9sMDl1djhVLzJocDRzTWZBWU1mdzM1ckhGeTdoOGZ3MzUvelRtemN2THpyazNjM0t2NU5jL1N1MXpWK2JoQjF4RVJHb2QwUkVScUFJNDFSVEhHcWVVUnpsbnRKNklkSXRUaUtyT25WMmJVL1c1RStUcDkvR2ZCamZKV2tidE9tRjhsTWNidk9tQlNaamVJODg0bzczcHVrOVdPUFR0WHEycFhMcytlM2pSMlkvRlBIM052MGpvL291bFJFNE9tMkxkY2ZXVlU5cXZ4bHdaZVo0cStIcXI0dk5jTk9sZXJ4N1NPaXZTRFZJaXJGMDI0VGJubGR2ZkYwZU10djBucXhwamF2VnRUbXFmUGF4cWRvL0ZQOW9lalRNek04ek15aXZ5OHl6WDhQUlc1ZWE1NzlLOUdJMGpvem9PbGJUaDZaWmk1SDF0eVBLVitNc3hNelBPVUhEYTlyenUwN1YxNzJ2TzdUc0FZc1FBQUFBQUFBQUFIYTBuNTF4ZnZZYmMxSFNmblhGKzlodHoyZnN6N2kvbjlvVTNNL2VWOGdCNlJXZ0FBQUNLZ2lRQVFBQUFBQUFBQUFBQUFMQ0xBbUFBU0FBQUFPbHIyVFp3OUN6OHZJcW1sell4NjdseVlqZmFtSTNuZzdyQ2RQLzhBd1BYL0FQYnIzL3JMWGxqdFk3UlA2UzI0STdXV3NUK3NmdThnMVhyT3g2ZDZOSzB5NWRuelhjaXJzeCtHT1B2YWxxM1RIcEhxVVZVWE5ScXg0VS9WNDBlVGp4ampQaXdFRHltTGc0T1B1cjllcjZwaTRIQmk0TmZyMUtwbXF1YTZwbXFxZWRVenZNKzBCMU9vRnRVMTNia1dyVkZWeTVQS21pSm1aOWtOazBub04wajFEczF6aVU0ZHFmcDVOWFo0S2ViREpscGpqZDUwMTVNdE1jYnZPbXRGTVRWWEZGTVRWVlBLbW1ONW4yUFZOSjZ0Tk1zN1Y0bm0zNHlyN0Z2NHVqOVpiZHBlazZacGRIWjAvQXg0YithaWo0VSsyZUt2eTgweFY0RWI1RmRsNXRpcjBwRy9UK2ZSNDlwSFF2cEhxVVUxVTRFNHRxZnJNbWV4RzNxNXo0TnYwbnF5d3JXMWVxYWhkeWF2UGJzUjVPang1L2szK2VNN3lpdnk0eHpYN3AxNUszTHpUUGs2Uk92Smo5SzBUU05LcGlOUDA3SHNUOXVLZDY1LzVUeFpHWm1lYzdvT0sxcHRPNW5iZ3RhYlR1MDdBR0xFQUFBQUFBQUFBQUJ5Mk1lL2ZuYXpacnVlcU9IaXlyVzE1N05ZM0tKbUlqY3VJWmZHMExJcjQzN2xGcU82UGhTeVdObytEWjJtYUp2VmQ5Yy8yVzNEOGo0dk4xbU96SHovQUIzdVRKeDJHbmRPL0pyVm16ZXYxZG16YXJ1VC9MRzdJNDJoNVZ6YWIxZEZtTzduTFk2WWltbnMweEZOUGRFYkM0NGYyY3dVNjViVGIwajgrcmh5Y3l5VDRJMDZHSHBPSmpYS2JudzdseW1kNHFxbmxQcWQ0RjdnNGZGZ3IyY1ZZaUhEZkpiSk83VHNBYm1BQUFBQWlvSWtBRUFBQUFBQUFBQUFBQUN3aXdKZ0FFZ0FBQURDZFA0QS93QUQxLzhBMjY5LzZ5emJHOUs0U3JQNkxhcmcwMXhicXlNUzVhaXVZM2luZU50MnZMTVJTWm45RzdoNWlNMUpuOVkvZDhsdy9WbTNkdjNZdFdMVnk5Y25sUmJwbXFmQ0hyT2s1WEdoNHZacno3dC9VTGtlYXFleGI0STR6NHRzMC9DdzlQdGVTd2NTeGpVZDFxaUtmZnplS3k0MXh4NEkzNlBvK1htK092U2tiOUhrT2s1QXVrV2Z0VmRzVzhDM1Awc2lyYXI0TWNmeWJkcFBWdHBHTjJhOVF5YitkWDU2WStMbzkzR2ZGdTRyOHZNTTkvanJ5VnVYbVdmSjNUcVBrNnVuYWJwK20yNHQ2Zmc0K0xUL0FLZEVSTSt1ZWJ0enhRY1V6TXp1WEJNemFkeUFJUUFBQUFBQUFBQUFBNThiRHlzaitEWXJxanYyMmp4WjBwYkpQWnBHNStTTFdpc2JtWEFNMWphRGNuYWNpOVRSL0xSeG54WkxHNHZCc2JUVEN6aVVkMXFpS2ZmenplS3k0MXh4NEkzNlBvK1htK092U2tiOUhrT2s1QXVrV2Z0VmRzVzhDM1Awc2lyYXI0TWNmeWJkcFBWdHBHTjJhOVF5YitkWDU2WStMbzkzR2ZGdTRyOHZNTTkvanJ5VnVYbVdmSjNUcVBrNnVuYWJwK20yNHQ2Zmc0K0xUL0FLZEVSTSt1ZWJ0enhRY1V6TXp1WEJNJ +
+'emFkeUFJUUFBQUFBQUFBQUFBNThiRHlzaitEWXJxanYyMmp4WjBwYkpQWnBHNStTTFdpc2JtWEFNMWphRGNuYWNpOVRSL0xSeG54WkxHMHZCc2JUVEN6aVVkMXFpS2ZmenplS3k0MXh4NEkzNlBvK1htK092U2tiOUhrT2s1QXVrV2Z0VmRzVzhDM1Awc2lyYXI0TWNmeWJkcFBWdHBHTjJhOVF5YitkWDU2WStMbzkzR2ZGdTRyOHZNTTkvanJ5VnVYbVdmSjNUcVBrNnVuYWJwK20yNHQ2Zmc0K0xUL0FLZEVSTSt1ZWJ0enhRY1V6TXp1WEJNemFkeUFJUUFBQUFBQUFBQUFBNThiRHlzaitEWXJxanYyMmp4WjBwYkpQWnBHNStTTFdpc2JtWEFNMWphRGNuYWNpOVRSL0xSeG54WkxHMHZCc2JUVFppdXI3VmZHVnh3L0llTHk5YlIyWStmNC9PbkhrNC9GVHU2dFp4OGJJeUoyczJhNi9URWNQRmtzYlFiMVcwNUY2bTNIZFQ0S2YwYkJ5amFPRVI1aGVjUDdPOFBqNjVKbTAvU1BUcjZ1SEp6SEpid3hwMGNiU2NHeHRQa3ZLVlI1N2s3KzUzb2lLWTJwaUlqdWlOZ1hXSGg0V0NOWTZ4SGs0cjVMWG5kcDJBTnpBQUFBQUFBQUFBQVJVRVNBQ0FBQUFBQUFBQUFBQUJZUllFd0FDUUFBQUJ3YWw0M1pQM1ZYNU9kd2FsNDNaUDNWWDVOUEUrNXY1VCt6UEg0NDgybkFQbHoxQUFBQUFBQUFBQUFEdFkybjVtUnROdXhWMmZ0VmZCajN0bVBGZkxiczBpWm41TWJXcldOMm5UcWpPWTJnY3B5Yi93RHh0eC9lV1R4dFB3OGZhYlZpbnRmYXE0eXVlSDluK0t5OWI0ckh6Ny9wSC9ISGs1aGlyNGVyV2NiQnk0aitGWXJtUHRUd2p4bGtzYlFLcDJuSnZ4VC9BQzBSdjcyZVJlY1A3UGNMajY1TjJuNlI5SS9MaHljeHkyOFBSMU1iVGNMSDQwV0thcXZ0Vi9DbDIvTnNDNXhZY2VLT3pqckVSOG5GYTlyenUwN0FHMWlBQUFBQUFBQUFBQUFBQUFBSXFDSkFCQUFBQUFBQUFBQUFBQXNJc0NZQUJJQUFBQTROUytic243cXI0bk80TlMrYnNuN3FyOG1uaWZjMzhwL1puajhjZWJUZ0h5NTZnQUFBQURuTzBjWjdvZDNHMHZPdjdUVFptaW43VmZCdHhZTW1hZXpqck16OG1ONzFwRzdUcDBqejdlZG40YlFiVWJUa1hxcTUrelJ3anhaUEd4TVhIL2cyS0taNzl0NThWMXcvczd4T1Rya21LeDlaOVB5NHNuTWNWZkQxYXhqYWJtNUcwMFdLcWFaK2xYOEdHVHg1QXBqYWNtL05YOHRFYmU5bTBYbkQ0ZzRURjF2dTAvUHUra2ZmYmh5Y3d5Mzd1anI0MkZpWS93RENzVVJQMnBqZWZHWFpRWE9QSFRIWHMwaUlqNU9PMXB0TzVuWUF6WWdBQUFBQUFBQUFBQUFBQUFBQUFBQUFDS2dpUUFRQUFBQUFBQUFBQUFBTENMQW1BQVNBQUFBT0RVdm03Sis2cS9KenVEVXZtN0orNnEvSnA0bjNOL0tmMlo0L0hIbTA0V21LcXF1elJUTlZVK2FJNGwzNGJSNDY0dE0wUmFwNzY1L3MrYVllSHk1NTFqck0rVDB0OGxNY2J0T21QV0ltcWRxWW1aN29qZHNPTm9XTlJ0Tis1WGRudWo0TU1sWXg3RmlOck5taTM2b1hmRCt6bkVYNjVaaXNmV2Z4NnVMSnpISFh3eHRyT05wT2RmMm55WGtxWjg1eWR2Y3llTm9ObW5hY2k1VmNudXArREg2c3dpODRma1BDWWV0bzdVL1A0ZHpoeWNmbXYzVHJ5Y1dQalkrUEcxbXpSUjZZamo0dVpCY1VwV2tkbXNhaHh6TTJuY2dESkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBaW9Ja0FFQUFBQUFBQUFBQUFBQ3dpd0pnQUVnQUFBQ1hLS2JsdXEzWEc1TlViVEhmQ2lKaUpqVWtkSDRzMmJWaW5zMmJWRnVQNVkyZnNFVnJGWTFFYWhNek16dVFCa2dBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUlVFU0FDQUFBQUFBQUFBQUFBQ1lSWUV3QUNRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUJGUVJJQUlBQUFBQUFBQUFBQUFGaEFTb2dHMUVBMm9nRzFFQTJvZ0cxRUEyb2dHMUVBMm9nRzFFQTJvZ0cxRUEyb2dHMUVBMm9nRzFFQTJvZ0cxRUEyb2dHMUVBMm9nRzFFQTJvZ0cxUUFBQkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFELzlrPSIgeD0iMjYiIHk9IjI2IiB3aWR0aD0iNDYwIiBoZWlnaHQ9IjQ2MCIvPgogIDxsaW5lIHgxPSI5MCIgeTE9IjkwIiB4Mj0iNDIyIiB5Mj0iNDIyIiBzdHJva2U9IiNlMDEwMWUiIHN0cm9rZS13aWR0aD0iMzgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSI0MjIiIHkxPSI5MCIgeDI9IjkwIiB5Mj0iNDIyIiBzdHJva2U9IiNlMDEwMWUiIHN0cm9rZS13aWR0aD0iMzgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="清掃リスト">
-<link rel="apple-touch-icon" href="/icon.png">
-<title>一日一箇所清掃リスト</title>
-
+<meta name="apple-mobile-web-app-title" content="KICK THE HABIT">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f5f3ee; --surface: #fff; --text: #1a1a18; --muted: #888780;
-  --border: rgba(0,0,0,0.1); --work: #2563eb; --work-bg: #eff6ff;
-  --off: #16a34a; --off-bg: #f0fdf4; --accent: #1a1a18;
-  --radius: 14px; --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface2: #f5f5f5;
+  --border: #e0e0e0;
+  --border2: #c0c0c0;
+  --text: #0a0a0a;
+  --text2: #555555;
+  --muted: #999999;
+  --ok: #1a5fa0;
+  --ok-bg: #1a5fa0;
+  --ok-light: #e8f2fb;
+  --fail: #c0392b;
+  --fail-bg: #c0392b;
+  --fail-light: #fbeaea;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; max-width: 480px; margin: 0 auto; }
-header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 1.25rem 0.875rem; position: sticky; top: 0; z-index: 10; }
-header h1 { font-size: 16px; font-weight: 700; }
-header .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.tabs { display: flex; background: var(--bg); padding: 0.75rem 1rem; gap: 8px; }
-.tab { flex: 1; padding: 10px; border-radius: 10px; border: 1.5px solid transparent; font-size: 13px; font-weight: 500; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; cursor: pointer; text-align: center; background: var(--surface); color: var(--muted); transition: all 0.15s; }
-.tab.active { background: var(--work-bg); border-color: var(--work); color: var(--work); }
-.page { display: none; } .page.active { display: block; }
 
-/* Calendar */
-.cal-section { padding: 0 1rem 1rem; }
-.cal-header { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 0 0.75rem; }
-.cal-header span { font-size: 15px; font-weight: 700; }
-.cal-header button { background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer; padding: 4px 8px; font-family: monospace; }
-.cal-legend { display: flex; gap: 8px; margin-bottom: 0.75rem; flex-wrap: wrap; }
-.leg { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); cursor: pointer; padding: 5px 10px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); transition: all 0.15s; }
-.leg.sel-work { background: var(--work-bg); border-color: var(--work); color: var(--work); font-weight: 500; }
-.leg.sel-off  { background: var(--off-bg);  border-color: var(--off);  color: var(--off);  font-weight: 500; }
-.leg.sel-none { background: #fef9ef; border-color: #d97706; color: #d97706; font-weight: 500; }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-work { background: var(--work); } .dot-off { background: var(--off); } .dot-none { background: #d97706; }
-.day-names { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; margin-bottom: 4px; }
-.day-names span { text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0; }
-.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; }
-.dc { min-height: 56px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 4px 2px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid transparent; background: var(--surface); color: var(--text); transition: all 0.12s; overflow: hidden; user-select: none; }
-.dc:active { transform: scale(0.93); }
-.dc.today { border-color: var(--accent); }
-.dc.work { background: var(--work-bg); color: var(--work); border-color: var(--work); }
-.dc.off  { background: var(--off-bg);  color: var(--off);  border-color: var(--off); }
-.dc.empty { background: none; border: none; cursor: default; }
-.dc-num { font-size: 13px; font-weight: 500; line-height: 1.4; flex-shrink: 0; }
-.dc-task { font-size: 8px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: left; padding: 0 2px; opacity: 0.85; }
-.dc-task.done-task { opacity: 0.4; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Modal */
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: flex-end; justify-content: center; }
-.modal-overlay.open { display: flex; }
-.modal-box { background: var(--surface); border-radius: 20px 20px 0 0; width: 100%; max-width: 480px; max-height: 85vh; overflow-y: auto; padding: 1.25rem 1.25rem 2rem; }
-.modal-title { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
-.modal-sub { font-size: 12px; color: var(--muted); margin-bottom: 1rem; }
-.modal-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; margin-top: 1rem; }
-.modal-select { width: 100%; font-size: 15px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; margin-bottom: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+}
 
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+}
 
+/* ── HEADER ── */
+header {
+  margin-bottom: 3rem;
+  animation: fadeUp 0.5s ease both;
+}
 
+.logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.8rem, 16vw, 7rem);
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  color: var(--text);
+  text-transform: uppercase;
+}
 
+.logo-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-sub::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--muted);
+}
 
-.modal-add-area input { flex: 1; border: none; outline: none; font-size: 14px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 10px 12px; background: none; color: var(--text); }
-.modal-add-area input::placeholder { color: var(--muted); }
-.modal-add-area button { background: none; border: none; border-left: 1px solid var(--border); padding: 10px 14px; font-size: 18px; cursor: pointer; color: var(--muted); }
-.modal-btns { display: flex; gap: 8px; margin-top: 1rem; }
-.modal-btn { flex: 1; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 500; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; cursor: pointer; border: none; }
-.modal-btn.cancel { background: var(--bg); color: var(--muted); }
-.modal-btn.ok { background: var(--work-bg); color: var(--work); }
+.today-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1.5rem;
+  display: block;
+}
 
-/* Check page */
-.check-section { padding: 0 1rem 2rem; }
-.today-banner { margin: 0.875rem 0 1rem; padding: 12px 14px; border-radius: var(--radius); font-size: 13px; font-weight: 500; }
-.today-banner.work { background: var(--work-bg); color: var(--work); }
-.today-banner.off  { background: var(--off-bg);  color: var(--off); }
-.today-banner.none { background: #fffbeb; color: #92400e; }
-.section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); padding: 0 0 0.5rem; }
-.task-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 1rem; }
-.task-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
-.task-row:last-child { border-bottom: none; }
-.chk { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-size: 12px; color: white; cursor: pointer; }
-.chk.done-work { background: var(--work); border-color: var(--work); }
-.chk.done-off  { background: var(--off);  border-color: var(--off); }
-.task-lbl { font-size: 15px; flex: 1; }
-.task-lbl.done { color: var(--muted); }
-.done-mark { font-size: 12px; color: var(--off); margin-top: 2px; }
-.picker-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem 1.25rem; margin-bottom: 1rem; }
-.picker-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-.picker-select { width: 100%; font-size: 15px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
-.reset-btn { background: none; border: 1px solid var(--border); border-radius: 20px; padding: 8px 20px; font-size: 12px; color: var(--muted); cursor: pointer; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; display: block; margin: 0 auto 1rem; }
+.legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.leg-dot { width: 10px; height: 10px; border-radius: 1px; }
+.leg-dot.ok   { background: var(--ok-bg); }
+.leg-dot.fail { background: var(--fail-bg); }
+.leg-dot.none { background: transparent; border: 1px solid var(--border2); }
 
-/* Edit page */
-.edit-section { padding: 0 1rem 2rem; }
-.edit-group { margin-bottom: 1.5rem; }
-.edit-group-title { font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
-.edit-item { display: flex; align-items: center; gap: 8px; background: var(--surface); border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; box-shadow: var(--shadow); }
-.edit-input { flex: 1; border: none; outline: none; font-size: 14px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; background: none; color: var(--text); }
-.edit-del { background: none; border: none; font-size: 18px; color: var(--muted); cursor: pointer; padding: 2px 4px; opacity: 0.5; }
-.add-area { display: flex; align-items: center; background: var(--surface); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
-.add-area input { flex: 1; border: none; outline: none; font-size: 14px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 12px 14px; background: none; color: var(--text); }
-.add-area input::placeholder { color: var(--muted); }
-.add-area button { background: none; border: none; border-left: 1px solid var(--border); padding: 12px 16px; font-size: 20px; cursor: pointer; color: var(--muted); }
+/* ── RULE ── */
+.rule {
+  width: 100%;
+  height: 1px;
+  background: var(--text);
+  margin: 2rem 0;
+}
 
-/* 複数選択モード */
-.bulk-bar { display: none; background: var(--surface); border-top: 1px solid var(--border); padding: 0.75rem 1rem; position: sticky; bottom: 0; z-index: 20; }
-.bulk-bar.active { display: block; }
-.bulk-bar-title { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-.bulk-bar-btns { display: flex; gap: 8px; }
-.bulk-bar-btn { flex: 1; padding: 9px; border-radius: 10px; border: none; font-size: 13px; font-weight: 500; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; cursor: pointer; }
-.bulk-bar-btn.work { background: var(--work-bg); color: var(--work); }
-.bulk-bar-btn.off  { background: var(--off-bg);  color: var(--off); }
-.bulk-bar-btn.clr  { background: #fef9ef; color: #d97706; }
-.bulk-bar-btn.cancel { background: var(--bg); color: var(--muted); }
-.dc.selected { outline: 3px solid #f59e0b; outline-offset: -2px; }
-.multi-mode-btn { font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; cursor: pointer; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; }
-.multi-mode-btn.on { background: #fef9ef; border-color: #d97706; color: #d97706; font-weight: 500; }
+/* ── ADD SECTION ── */
+.add-section {
+  display: flex;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--text);
+  animation: fadeUp 0.5s 0.06s ease both;
+}
+
+.add-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  padding: 0 12px;
+  height: 48px;
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  outline: none;
+}
+.add-input::placeholder {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.add-btn {
+  height: 48px;
+  padding: 0 20px;
+  background: var(--text);
+  border: none;
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.add-btn:hover { background: #333; }
+
+/* ── CARDS ── */
+.habits-list { display: flex; flex-direction: column; gap: 0; }
+
+.habit-card {
+  border-top: 1px solid var(--border);
+  padding: 1.4rem 0;
+  animation: fadeUp 0.4s ease both;
+  position: relative;
+}
+.habit-card:last-child { border-bottom: 1px solid var(--border); }
+
+.card-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* Action buttons — horizontal */
+.action-btns {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.act-btn {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: all 0.15s;
+  flex-shrink: 0;
+  border-radius: 0;
+}
+
+.act-btn.ok-btn:hover  { border-color: var(--ok-bg); color: var(--ok-bg); background: var(--ok-light); }
+.act-btn.ok-btn.active { border-color: var(--ok-bg); background: var(--ok-bg); color: #fff; }
+
+.act-btn.fail-btn:hover  { border-color: var(--fail-bg); color: var(--fail-bg); background: var(--fail-light); }
+.act-btn.fail-btn.active { border-color: var(--fail-bg); background: var(--fail-bg); color: #fff; }
+
+.habit-info { flex: 1; min-width: 0; }
+
+.habit-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+/* Stats */
+.stats-row {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+
+.stat-block { line-height: 1; }
+
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--ok-bg);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.stat-num.grey { color: var(--fail-bg); }
+
+.stat-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.stat-sep {
+  width: 1px; height: 28px;
+  background: var(--border);
+  align-self: center;
+}
+
+.streak-emoji { font-size: 1rem; margin-left: 2px; }
+
+/* Right side — rate + delete */
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.rate-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.delete-btn {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.15s;
+  border-radius: 0;
+}
+.delete-btn:hover { border-color: var(--text); color: var(--text); }
+
+/* ── CALENDAR ── */
+.cal-wrap { margin-top: 12px; }
+
+.cal-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+.cal-rate {
+  font-weight: 700;
+  color: var(--ok-bg);
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  gap: 3px;
+}
+
+.dot {
+  aspect-ratio: 1;
+  border-radius: 0;
+  background: var(--surface2);
+  transition: transform 0.1s;
+}
+.dot:hover { transform: scale(1.5); z-index: 5; }
+.dot.ok        { background: var(--ok-bg); opacity: 0.75; }
+.dot.ok-today  { background: var(--ok-bg); opacity: 1; }
+.dot.fail      { background: var(--fail-bg); opacity: 0.6; }
+.dot.fail-today{ background: var(--fail-bg); opacity: 1; }
+.dot.t-empty   { background: transparent; outline: 1px solid var(--text); outline-offset: 1px; }
+
+/* ── EMPTY ── */
+.empty-state {
+  padding: 4rem 0;
+  color: var(--muted);
+}
+.empty-big {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--surface2);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.empty-text {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+/* ── ANIM ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  0%  { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  100%{ transform: scale(1); }
+}
+.pop { animation: pop 0.2s ease; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: var(--border2); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(255,255,255,0.85);
+  z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--text);
+  padding: 2rem 1.5rem;
+  max-width: 300px; width: 90%;
+  text-align: center;
+}
+.modal p { font-size: 13px; color: var(--text2); margin-bottom: 1.5rem; line-height: 1.8; }
+.modal strong { color: var(--text); font-weight: 700; }
+.modal-btns { display: flex; gap: 8px; }
+.modal-btns button {
+  flex: 1; height: 40px;
+  border: 1px solid var(--border2);
+  background: transparent; color: var(--text2);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.15s;
+}
+.modal-btns .confirm-del { border-color: var(--text); color: var(--text); }
+.modal-btns .confirm-del:hover { background: var(--text); color: #fff; }
+.modal-btns button:hover { background: var(--surface2); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
+<div class="container">
+  <header>
+    <div class="logo">KICK THE<br>HABIT</div>
 
-<header>
-  <h1>🧹 一日一箇所清掃リスト</h1>
-  <div class="sub" id="hdate"></div>
-</header>
+    <span class="today-date" id="todayDate"></span>
+    <div class="legend">
+      <div class="legend-item"><div class="leg-dot ok"></div>断てた</div>
+      <div class="legend-item"><div class="leg-dot fail"></div>できなかった</div>
+      <div class="legend-item"><div class="leg-dot none"></div>未記録</div>
+    </div>
+  </header>
 
-<div class="tabs">
-  <button class="tab active" id="tab-cal" onclick="showPage('cal')">📅 カレンダー</button>
-  <button class="tab" id="tab-edit" onclick="showPage('edit')">✏️ 編集</button>
-</div>
+  <div class="rule"></div>
 
-<!-- Calendar page -->
-<div class="page active" id="page-cal">
-  <div class="cal-section">
-    <div class="cal-header">
-      <button onclick="changeMonth(-1)">‹</button>
-      <span id="cal-month-label"></span>
-      <button onclick="changeMonth(1)">›</button>
-      <button class="multi-mode-btn" id="multi-btn" onclick="toggleMultiMode()">複数選択</button>
-    </div>
-    <div class="cal-legend">
-      <div class="leg" id="leg-work" onclick="setMode('work')"><div class="dot dot-work"></div>仕事の日</div>
-      <div class="leg" id="leg-off" onclick="setMode('off')"><div class="dot dot-off"></div>休みの日</div>
-      <div class="leg" id="leg-none" onclick="setMode('none')"><div class="dot dot-none"></div>クリア</div>
-    </div>
-    <div id="bulk-area" style="display:none;background:var(--surface);border-radius:var(--radius);padding:1rem;margin-bottom:0.75rem;box-shadow:var(--shadow);">
-      <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;">一括登録する曜日を選択</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;" id="bulk-days"></div>
-      <div style="display:flex;gap:8px;">
-        <button onclick="bulkApply()" style="flex:1;padding:9px;border-radius:10px;border:none;font-size:13px;font-weight:500;font-family:-apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;cursor:pointer;background:var(--work-bg);color:var(--work);" id="bulk-apply-btn">この曜日に一括設定</button>
-        <button onclick="closeBulk()" style="padding:9px 14px;border-radius:10px;border:none;font-size:13px;font-family:-apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;cursor:pointer;background:var(--bg);color:var(--muted);">閉じる</button>
-      </div>
-    </div>
-    <div class="day-names"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
-    <div class="cal-grid" id="cal-grid"></div>
+  <div class="add-section">
+    <input class="add-input" id="newInput" type="text" placeholder="断ちたい習慣を入力（例：タバコ、深夜のスマホ）" maxlength="30">
+    <button class="add-btn" onclick="addHabit()">Add +</button>
   </div>
-  <div style="padding:0 1rem 2rem;" id="cal-preview"></div>
-  <div class="bulk-bar" id="bulk-bar">
-    <div class="bulk-bar-title" id="bulk-bar-title">0日選択中</div>
-    <div class="bulk-bar-btns">
-      <button class="bulk-bar-btn work" onclick="bulkApplyType('work')">仕事の日</button>
-      <button class="bulk-bar-btn off"  onclick="bulkApplyType('off')">休みの日</button>
-      <button class="bulk-bar-btn clr"  onclick="bulkApplyType('none')">クリア</button>
-      <button class="bulk-bar-btn cancel" onclick="toggleMultiMode()">解除</button>
-    </div>
-  </div>
-</div>
 
-<!-- Edit page -->
-<div class="page" id="page-edit">
-  <div class="edit-section" style="padding-top:1rem;">
-    <div class="edit-group">
-      <div class="edit-group-title"><span style="width:10px;height:10px;border-radius:50%;background:var(--work);display:inline-block;"></span>仕事の日の候補</div>
-      <div id="edit-work-list"></div>
-      <div class="add-area">
-        <input type="text" id="add-work-input" placeholder="候補を追加…" maxlength="30">
-        <button onclick="addItem('work')">＋</button>
-      </div>
-    </div>
-    <div class="edit-group">
-      <div class="edit-group-title"><span style="width:10px;height:10px;border-radius:50%;background:var(--off);display:inline-block;"></span>休みの日の候補</div>
-      <div id="edit-off-list"></div>
-      <div class="add-area">
-        <input type="text" id="add-off-input" placeholder="候補を追加…" maxlength="30">
-        <button onclick="addItem('off')">＋</button>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center;padding-bottom:2rem;">
-  </div>
-</div>
-
-<!-- Day Modal -->
-<div class="modal-overlay" id="day-modal" onclick="closeModal(event)">
-  <div class="modal-box">
-    <div class="modal-title" id="modal-title"></div>
-    <div class="modal-sub" id="modal-sub"></div>
-
-    <div class="modal-section-label">今日の清掃箇所</div>
-    <select class="modal-select" id="modal-select">
-      <option value="">― 選択なし ―</option>
-    </select>
-
-    <div style="margin-bottom:0.75rem;">
-      <button id="modal-done-btn" onclick="toggleModalDone()" style="width:100%;padding:10px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-weight:500;font-family:-apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;cursor:pointer;background:var(--bg);color:var(--muted);">完了にする</button>
-    </div>
-    <div class="modal-btns">
-      <button class="modal-btn cancel" onclick="closeModalDirect()">キャンセル</button>
-      <button class="modal-btn ok" id="modal-ok" onclick="commitModal()">決定</button>
-    </div>
-  </div>
+  <div class="habits-list" id="habitList"></div>
 </div>
 
 <script>
-const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
-const DAYS = ['日','月','火','水','木','金','土'];
-const now = new Date();
-const todayY = now.getFullYear(), todayM = now.getMonth(), todayD = now.getDate();
+const KEY='breakit_v3';
+function getToday(){const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
+function pad(n){return String(n).padStart(2,'0');}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{habits:[]};}catch(e){return{habits:[]};}}
+function save(d){localStorage.setItem(KEY,JSON.stringify(d));}
+function getLast28(){const days=[],t=new Date();for(let i=27;i>=0;i--){const d=new Date(t);d.setDate(t.getDate()-i);days.push(`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`);}return days;}
+function calcStreak(okSet){let s=0,d=new Date(getToday()+'T00:00:00');while(true){const k=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;if(okSet.has(k)){s++;d.setDate(d.getDate()-1);}else break;}return s;}
+function icon(n){return n>=30?'👑':n>=14?'🔥':n>=7?'⚡':n>=3?'✨':'';}
 
-let calYear = todayY, calMonth = todayM;
-let calMode = '';
-let multiMode = false;
-let multiSelected = [];
+function render(){
+  const data=load(),today=getToday(),days=getLast28();
+  const d=new Date(),DOW=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  document.getElementById('todayDate').textContent=
+    `${d.getFullYear()} . ${pad(d.getMonth()+1)} . ${pad(d.getDate())}  /  ${DOW[d.getDay()]}`;
 
-function lsGet(key, def) { try { return JSON.parse(localStorage.getItem(key) || def); } catch(e) { return JSON.parse(def); } }
-function lsSet(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {} }
-
-let schedule      = lsGet('cl2-sched',   '{}');
-let workItems     = lsGet('cl2-work',    '["掃除機","玄関","窓"]');
-let offItems      = lsGet('cl2-off',     '["バスルーム","トイレ","キッチン","洗面所","埃取り","リビング空調","クローゼット"]');
-let selectedByDay = lsGet('cl2-selmap',  '{}');
-let doneByDay     = lsGet('cl2-donemap', '{}');
-
-// 今日キー
-const todayKey = todayY + '-' + todayM + '-' + todayD;
-let todaySelected = selectedByDay[todayKey] || '';
-let todayDone     = doneByDay[todayKey] === '1';
-
-let modalKey = null;
-let modalType = null;
-let modalWorkItems = [];
-let modalOffItems  = [];
-
-function save() {
-  selectedByDay[todayKey] = todaySelected;
-  doneByDay[todayKey] = todayDone ? '1' : '0';
-  lsSet('cl2-sched',   schedule);
-  lsSet('cl2-work',    workItems);
-  lsSet('cl2-off',     offItems);
-  lsSet('cl2-selmap',  selectedByDay);
-  lsSet('cl2-donemap', doneByDay);
-}
-
-function todayType() {
-  return schedule[todayKey] || null;
-}
-
-function showPage(p) {
-  ['cal','edit'].forEach(id => {
-    document.getElementById('page-' + id).classList.toggle('active', id === p);
-    document.getElementById('tab-' + id).classList.toggle('active', id === p);
-  });
-  if (p === 'edit')  renderEdit();
-  if (p === 'cal')   { renderCal(); renderCalPreview(); }
-}
-
-function setMode(m) {
-  calMode = (calMode === m) ? '' : m;
-  document.getElementById('leg-work').className = 'leg' + (calMode === 'work' ? ' sel-work' : '');
-  document.getElementById('leg-off').className  = 'leg' + (calMode === 'off'  ? ' sel-off'  : '');
-  document.getElementById('leg-none').className = 'leg' + (calMode === 'none' ? ' sel-none' : '');
-  const bulk = document.getElementById('bulk-area');
-  if (calMode === 'work' || calMode === 'off' || calMode === 'none') {
-    bulkSelectedDays = [];
-    bulk.style.display = 'block';
-    const applyBtn = document.getElementById('bulk-apply-btn');
-    if (calMode === 'work') { applyBtn.style.background = 'var(--work-bg)'; applyBtn.style.color = 'var(--work)'; }
-    else if (calMode === 'off') { applyBtn.style.background = 'var(--off-bg)'; applyBtn.style.color = 'var(--off)'; }
-    else { applyBtn.style.background = '#fef9ef'; applyBtn.style.color = '#d97706'; }
-    renderBulkDays();
-  } else {
-    bulk.style.display = 'none';
-    bulkSelectedDays = [];
-  }
-}
-
-let bulkSelectedDays = [];
-const DAY_LABELS = ['日','月','火','水','木','金','土'];
-
-function renderBulkDays() {
-  const container = document.getElementById('bulk-days');
-  container.innerHTML = '';
-  DAY_LABELS.forEach((label, i) => {
-    const btn = document.createElement('button');
-    const sel = bulkSelectedDays.includes(i);
-    btn.textContent = label;
-    btn.style.cssText = 'padding:6px 12px;border-radius:20px;border:1.5px solid ' + (sel ? (calMode==='work'?'var(--work)':'var(--off)') : 'var(--border)') + ';background:' + (sel ? (calMode==='work'?'var(--work-bg)':'var(--off-bg)') : 'var(--surface)') + ';color:' + (sel ? (calMode==='work'?'var(--work)':'var(--off)') : 'var(--muted)') + ';font-size:13px;font-weight:500;font-family:Noto Sans JP,sans-serif;cursor:pointer;';
-    btn.onclick = () => {
-      if (bulkSelectedDays.includes(i)) bulkSelectedDays = bulkSelectedDays.filter(x => x !== i);
-      else bulkSelectedDays.push(i);
-      renderBulkDays();
-    };
-    container.appendChild(btn);
-  });
-}
-
-function bulkApply() {
-  if (bulkSelectedDays.length === 0) return;
-  const days = new Date(calYear, calMonth + 1, 0).getDate();
-  for (let d = 1; d <= days; d++) {
-    const dow = new Date(calYear, calMonth, d).getDay();
-    if (bulkSelectedDays.includes(dow)) {
-      const key = calYear + '-' + calMonth + '-' + d;
-      schedule[key] = calMode;
-    }
-  }
-  save(); renderCal(); renderCalPreview();
-}
-
-function closeBulk() {
-  document.getElementById('bulk-area').style.display = 'none';
-  calMode = '';
-  document.getElementById('leg-work').className = 'leg';
-  document.getElementById('leg-off').className  = 'leg';
-  document.getElementById('leg-none').className = 'leg';
-}
-
-function changeMonth(d) {
-  calMonth += d;
-  if (calMonth < 0)  { calMonth = 11; calYear--; }
-  if (calMonth > 11) { calMonth = 0;  calYear++; }
-  renderCal();
-}
-
-function renderCal() {
-  document.getElementById('cal-month-label').textContent = calYear + '年 ' + MONTHS[calMonth];
-  // preview will be rendered at end of renderCal
-  const grid = document.getElementById('cal-grid');
-  grid.innerHTML = '';
-  const first = new Date(calYear, calMonth, 1).getDay();
-  const days  = new Date(calYear, calMonth + 1, 0).getDate();
-  for (let i = 0; i < first; i++) {
-    const el = document.createElement('div');
-    el.className = 'dc empty'; grid.appendChild(el);
-  }
-  for (let d = 1; d <= days; d++) {
-    const key = calYear + '-' + calMonth + '-' + d;
-    const type = schedule[key];
-    const isToday = (calYear === todayY && calMonth === todayM && d === todayD);
-    const el = document.createElement('div');
-    el.className = 'dc' + (type ? ' ' + type : '') + (isToday ? ' today' : '') + (multiSelected.includes(key) ? ' selected' : '');
-
-    const numDiv = document.createElement('div');
-    numDiv.className = 'dc-num';
-    numDiv.textContent = d;
-    el.appendChild(numDiv);
-
-    if (type) {
-      const taskName = selectedByDay[key] || '';
-      const isDone = doneByDay[key] === '1';
-      if (taskName) {
-        const tEl = document.createElement('div');
-        tEl.className = 'dc-task' + (isDone ? ' done-task' : '');
-        tEl.textContent = '· ' + taskName;
-        el.appendChild(tEl);
-        if (isDone) {
-          const doneEl = document.createElement('div');
-          doneEl.style.cssText = 'font-size:10px;color:var(--off);font-weight:700;';
-          doneEl.textContent = '✓';
-          el.appendChild(doneEl);
-        }
-      }
-    }
-
-    el.onclick = () => {
-      if (multiMode) {
-        if (el.classList.contains('selected')) {
-          multiSelected = multiSelected.filter(k => k !== key);
-          el.classList.remove('selected');
-        } else {
-          multiSelected.push(key);
-          el.classList.add('selected');
-        }
-        updateBulkBar();
-        return;
-      }
-      if (calMode !== '') {
-        if (calMode === 'none') delete schedule[key];
-        else schedule[key] = calMode;
-        save(); renderCal(); renderCalPreview();
-        return;
-      }
-      if (type) {
-        openModal(key, d, type);
-      }
-    };
-    grid.appendChild(el);
-  }
-}
-
-/* ---- Modal ---- */
-function openModal(key, d, type) {
-  modalKey  = key;
-  modalType = type;
-  // 作業コピーを作成（キャンセル時に元に戻せるよう）
-  modalWorkItems = [...workItems];
-  modalOffItems  = [...offItems];
-
-  const mn = calMonth + 1;
-  document.getElementById('modal-title').textContent = calYear + '年' + mn + '月' + d + '日';
-  document.getElementById('modal-sub').textContent   = type === 'work' ? '仕事の日' : '休みの日';
-
-  const okBtn = document.getElementById('modal-ok');
-  okBtn.style.background = type === 'work' ? 'var(--work-bg)' : 'var(--off-bg)';
-  okBtn.style.color = type === 'work' ? 'var(--work)' : 'var(--off)';
-
-  refreshModalSelect();
-  refreshModalDoneBtn();
-  document.getElementById('day-modal').classList.add('open');
-}
-
-function refreshModalDoneBtn() {
-  const btn = document.getElementById('modal-done-btn');
-  if (!btn) return;
-  const isDone = doneByDay[modalKey] === '1';
-  btn.textContent = isDone ? '✓ 完了済み' : '完了にする';
-  btn.style.background = isDone ? 'var(--off-bg)' : 'var(--bg)';
-  btn.style.color = isDone ? 'var(--off)' : 'var(--muted)';
-  btn.style.borderColor = isDone ? 'var(--off)' : 'var(--border)';
-}
-
-function toggleModalDone() {
-  const isDone = doneByDay[modalKey] === '1';
-  doneByDay[modalKey] = isDone ? '0' : '1';
-  if (modalKey === todayKey) todayDone = !isDone;
-  save();
-  refreshModalDoneBtn();
-  renderCal();
-  renderCalPreview();
-}
-
-function refreshModalSelect() {
-  const items = modalType === 'work' ? modalWorkItems : modalOffItems;
-  const current = selectedByDay[modalKey] || '';
-  const sel = document.getElementById('modal-select');
-  sel.innerHTML = '<option value="">― 選択なし ―</option>';
-  items.forEach(item => {
-    const opt = document.createElement('option');
-    opt.value = item; opt.textContent = item;
-    if (item === current) opt.selected = true;
-    sel.appendChild(opt);
-  });
-}
-
-function closeModal(e) {
-  if (e.target === document.getElementById('day-modal')) closeModalDirect();
-}
-
-function closeModalDirect() {
-  document.getElementById('day-modal').classList.remove('open');
-  modalKey = null;
-}
-
-function commitModal() {
-  if (!modalKey) return;
-  const val = document.getElementById('modal-select').value;
-  if (val) selectedByDay[modalKey] = val;
-  else delete selectedByDay[modalKey];
-
-  // 今日なら todaySelected も更新
-  if (modalKey === todayKey) {
-    todaySelected = val;
-    todayDone = false;
-    doneByDay[todayKey] = '0';
-  }
-
-  save();
-  closeModalDirect();
-  renderCal();
-  renderCalPreview();
-  if (document.getElementById('page-check').classList.contains('active')) renderCheck();
-  if (document.getElementById('page-edit').classList.contains('active')) renderEdit();
-}
-
-/* ---- Check page ---- */
-function renderCheck() {
-  const type = todayType();
-  const mn = todayM + 1;
-  const banner = document.getElementById('today-banner');
-  if (!type) {
-    banner.className = 'today-banner none';
-    banner.textContent = mn + '月' + todayD + '日 — カレンダーで今日の種別を設定してください';
-  } else {
-    banner.className = 'today-banner ' + type;
-    banner.textContent = mn + '月' + todayD + '日は' + (type === 'work' ? '仕事の日' : '休みの日') + 'です';
-  }
-  const items = type === 'work' ? workItems : type === 'off' ? offItems : [];
-  const picker = document.getElementById('task-picker');
-  document.getElementById('picker-label').textContent = type ? '今日の清掃箇所を選んでください' : '種別を設定すると選択できます';
-  picker.innerHTML = '<option value="">― 選択 ―</option>';
-  items.forEach(item => {
-    const opt = document.createElement('option');
-    opt.value = item; opt.textContent = item;
-    if (item === todaySelected) opt.selected = true;
-    picker.appendChild(opt);
-  });
-  picker.disabled = !type;
-  renderSelected(type);
-}
-
-function selectTask() {
-  todaySelected = document.getElementById('task-picker').value;
-  todayDone = false;
-  save(); renderSelected(todayType()); renderCal();
-}
-
-function renderSelected(type) {
-  const area = document.getElementById('selected-area');
-  if (!todaySelected) { area.innerHTML = ''; return; }
-  const doneClass = type === 'work' ? 'done-work' : 'done-off';
-  area.innerHTML = '';
-  const card = document.createElement('div'); card.className = 'task-card';
-  const row  = document.createElement('div'); row.className  = 'task-row';
-  const chk  = document.createElement('div');
-  chk.className = 'chk' + (todayDone ? ' ' + doneClass : '');
-  chk.textContent = todayDone ? '✓' : '';
-  chk.onclick = () => { todayDone = !todayDone; save(); renderSelected(type); renderCal(); };
-  const lbl = document.createElement('span');
-  lbl.className = 'task-lbl' + (todayDone ? ' done' : '');
-  lbl.textContent = todaySelected;
-  const col = document.createElement('div');
-  col.style.cssText = 'display:flex;flex-direction:column;flex:1;';
-  col.appendChild(lbl);
-  if (todayDone) {
-    const mark = document.createElement('div');
-    mark.className = 'done-mark';
-    mark.textContent = '✓ 完了';
-    col.appendChild(mark);
-  }
-  row.appendChild(chk); row.appendChild(col);
-  card.appendChild(row); area.appendChild(card);
-}
-
-
-function renderCalPreview() {
-  const preview = document.getElementById('cal-preview');
-  if (!preview) return;
-  const type = todayType();
-  const mn = todayM + 1;
-  preview.innerHTML = '';
-
-  const titleEl = document.createElement('div');
-  titleEl.className = 'section-label';
-  titleEl.textContent = '今日のやること（' + mn + '月' + todayD + '日）';
-  preview.appendChild(titleEl);
-
-  if (!type) {
-    const msg = document.createElement('div');
-    msg.style.cssText = 'font-size:13px;color:var(--muted);padding:4px 0 8px;';
-    msg.textContent = 'カレンダーで今日の種別を設定してください';
-    preview.appendChild(msg);
+  const list=document.getElementById('habitList');
+  if(!data.habits.length){
+    list.innerHTML=`<div class="empty-state"><span class="empty-big">No<br>Habits</span><div class="empty-text">まだ習慣が登録されていません。<br>上の入力欄から追加しましょう。</div></div>`;
     return;
   }
 
-  const taskName = selectedByDay[todayKey] || '';
-  if (!taskName) {
-    const msg = document.createElement('div');
-    msg.style.cssText = 'font-size:13px;color:var(--muted);padding:4px 0 8px;';
-    msg.textContent = '清掃箇所が未選択です';
-    preview.appendChild(msg);
-    return;
-  }
+  list.innerHTML=data.habits.map((h,idx)=>{
+    const okSet=new Set(h.doneDays||[]),failSet=new Set(h.failDays||[]);
+    const todayOk=okSet.has(today),todayFail=failSet.has(today);
+    const streak=calcStreak(okSet);
+    const okCount=days.filter(d=>okSet.has(d)).length;
+    const failCount=days.filter(d=>failSet.has(d)).length;
+    const rate=Math.round(okCount/28*100);
 
-  const card = document.createElement('div'); card.className = 'task-card';
-  const row  = document.createElement('div'); row.className  = 'task-row';
-  const chk  = document.createElement('div');
-  const doneClass = type === 'work' ? 'done-work' : 'done-off';
-  chk.className = 'chk' + (todayDone ? ' ' + doneClass : '');
-  chk.style.cssText = 'width:20px;height:20px;font-size:11px;';
-  chk.textContent = todayDone ? '✓' : '';
-  chk.onclick = () => {
-    todayDone = !todayDone;
-    save(); renderCalPreview(); renderCal();
-    if (document.getElementById('page-check').classList.contains('active')) renderSelected(type);
-  };
-  const lbl = document.createElement('span');
-  lbl.className = 'task-lbl' + (todayDone ? ' done' : '');
-  lbl.style.fontSize = '14px';
-  lbl.textContent = taskName;
-  const col = document.createElement('div');
-  col.style.cssText = 'display:flex;flex-direction:column;flex:1;';
-  col.appendChild(lbl);
-  if (todayDone) {
-    const mark = document.createElement('div');
-    mark.className = 'done-mark';
-    mark.textContent = '✓ 完了';
-    col.appendChild(mark);
-  }
-  row.appendChild(chk); row.appendChild(col);
-  card.appendChild(row); preview.appendChild(card);
+    const dots=days.map(day=>{
+      const isOk=okSet.has(day),isFail=failSet.has(day),isToday=day===today;
+      let dc='dot';
+      if(isOk&&isToday)dc+=' ok-today';
+      else if(isOk)dc+=' ok';
+      else if(isFail&&isToday)dc+=' fail-today';
+      else if(isFail)dc+=' fail';
+      else if(isToday)dc+=' t-empty';
+      const lbl=day.slice(5).replace('-','/');
+      const st=isOk?'✓断てた':isFail?'✕できなかった':'';
+      return `<div class="${dc}" title="${lbl} ${st}"></div>`;
+    }).join('');
+
+    return `<div class="habit-card" id="card-${idx}" style="animation-delay:${idx*0.05}s">
+      <div class="card-num">— ${String(idx+1).padStart(2,'0')}</div>
+      <div class="card-main">
+        <div class="action-btns">
+          <button class="act-btn ok-btn ${todayOk?'active':''}" onclick="toggleOk(${idx})" title="今日は断てた！">OK</button>
+          <button class="act-btn fail-btn ${todayFail?'active':''}" onclick="toggleFail(${idx})" title="今日はできなかった…">NG</button>
+        </div>
+        <div class="habit-info">
+          <div class="habit-name">${escHtml(h.name)}</div>
+          <div class="stats-row">
+            <div class="stat-block">
+              <div class="stat-num">${streak}${streak>0?`<span class="streak-emoji">${icon(streak)}</span>`:''}</div>
+              <div class="stat-label">連続達成</div>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat-block">
+              <div class="stat-num">${okCount}</div>
+              <div class="stat-label">28日・成功</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-num grey">${failCount}</div>
+              <div class="stat-label">28日・失敗</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-right">
+          <div class="rate-badge">${rate}%</div>
+          <button class="delete-btn" onclick="confirmDelete(${idx})">Del</button>
+        </div>
+      </div>
+      <div class="cal-wrap">
+        <div class="cal-label"><span>Past 28 Days</span><span class="cal-rate">${okCount} / 28</span></div>
+        <div class="cal-grid">${dots}</div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
-function resetToday() {
-  if (!confirm('本日のチェックをリセットしますか？')) return;
-  todaySelected = ''; todayDone = false;
-  delete selectedByDay[todayKey]; doneByDay[todayKey] = '0';
-  save(); renderCheck(); renderCal(); renderCalPreview();
-}
-
-/* ---- Edit page ---- */
-function renderEdit() {
-  renderEditList('work'); renderEditList('off');
-}
-
-function renderEditList(type) {
-  const items = type === 'work' ? workItems : offItems;
-  const container = document.getElementById('edit-' + type + '-list');
-  container.innerHTML = '';
-  items.forEach((item, i) => {
-    const row = document.createElement('div'); row.className = 'edit-item';
-    const inp = document.createElement('input');
-    inp.type = 'text'; inp.className = 'edit-input'; inp.value = item; inp.maxLength = 30;
-    inp.onchange = () => {
-      const val = inp.value.trim();
-      if (val) { if (type === 'work') workItems[i] = val; else offItems[i] = val; save(); }
-      else inp.value = item;
-    };
-    const del = document.createElement('button'); del.className = 'edit-del'; del.textContent = '×';
-    del.onclick = () => {
-      if (type === 'work') workItems.splice(i, 1); else offItems.splice(i, 1);
-      save(); renderEditList(type);
-    };
-    row.appendChild(inp); row.appendChild(del); container.appendChild(row);
-  });
-}
-
-function addItem(type) {
-  const inp = document.getElementById('add-' + type + '-input');
-  const val = inp.value.trim();
-  if (!val) return;
-  if (type === 'work') workItems.push(val); else offItems.push(val);
-  inp.value = ''; save(); renderEditList(type);
-}
-
-function toggleMultiMode() {
-  multiMode = !multiMode;
-  multiSelected = [];
-  const btn = document.getElementById('multi-btn');
-  const bar = document.getElementById('bulk-bar');
-  btn.className = 'multi-mode-btn' + (multiMode ? ' on' : '');
-  btn.textContent = multiMode ? '選択中...' : '複数選択';
-  bar.classList.toggle('active', multiMode);
-  updateBulkBar();
-  renderCal();
-}
-
-function updateBulkBar() {
-  document.getElementById('bulk-bar-title').textContent = multiSelected.length + '日選択中';
-}
-
-function bulkApplyType(type) {
-  if (multiSelected.length === 0) return;
-  multiSelected.forEach(key => {
-    if (type === 'none') delete schedule[key];
-    else schedule[key] = type;
-  });
-  save();
-  multiSelected = [];
-  multiMode = false;
-  const btn = document.getElementById('multi-btn');
-  const bar = document.getElementById('bulk-bar');
-  btn.className = 'multi-mode-btn';
-  btn.textContent = '複数選択';
-  bar.classList.remove('active');
-  updateBulkBar();
-  renderCal(); renderCalPreview();
-}
-
-function resetAllData() {
-  if (!confirm('全データを初期化しますか？\n※候補リスト・カレンダー設定・チェック履歴がすべて消えます')) return;
-  try { localStorage.clear(); } catch(e) {}
-  location.reload();
-}
-
-// Init
-document.getElementById('hdate').textContent = todayY + '年' + (todayM+1) + '月' + todayD + '日（' + DAYS[now.getDay()] + '）';
-document.getElementById('add-work-input').addEventListener('keydown', e => { if (e.key==='Enter') addItem('work'); });
-document.getElementById('add-off-input').addEventListener('keydown',  e => { if (e.key==='Enter') addItem('off'); });
-renderCal();
-renderCalPreview();
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function toggleOk(idx){const data=load(),today=getToday(),h=data.habits[idx];const ok=new Set(h.doneDays||[]),fl=new Set(h.failDays||[]);if(ok.has(today)){ok.delete(today);}else{ok.add(today);fl.delete(today);}h.doneDays=[...ok];h.failDays=[...fl];save(data);render();animPop(`#card-${idx} .ok-btn`);}
+function toggleFail(idx){const data=load(),today=getToday(),h=data.habits[idx];const ok=new Set(h.doneDays||[]),fl=new Set(h.failDays||[]);if(fl.has(today)){fl.delete(today);}else{fl.add(today);ok.delete(today);}h.doneDays=[...ok];h.failDays=[...fl];save(data);render();animPop(`#card-${idx} .fail-btn`);}
+function animPop(sel){const el=document.querySelector(sel);if(!el)return;el.classList.add('pop');el.addEventListener('animationend',()=>el.classList.remove('pop'),{once:true});}
+function addHabit(){const input=document.getElementById('newInput'),name=input.value.trim();if(!name){input.focus();return;}const data=load();data.habits.push({name,doneDays:[],failDays:[]});save(data);input.value='';render();}
+function confirmDelete(idx){const data=load(),name=data.habits[idx].name;const overlay=document.createElement('div');overlay.className='modal-overlay';overlay.innerHTML=`<div class="modal"><p><strong>「${escHtml(name)}」</strong>を削除しますか？<br>記録はすべて消えます。</p><div class="modal-btns"><button onclick="this.closest('.modal-overlay').remove()">Cancel</button><button class="confirm-del" onclick="deleteHabit(${idx});this.closest('.modal-overlay').remove()">Delete</button></div></div>`;document.body.appendChild(overlay);}
+function deleteHabit(idx){const data=load();data.habits.splice(idx,1);save(data);render();}
+document.getElementById('newInput').addEventListener('keydown',e=>{if(e.key==='Enter')addHabit();});
+render();
 </script>
 </body>
 </html>
