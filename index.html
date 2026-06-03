@@ -123,6 +123,10 @@ header .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
 .multi-mode-btn { font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; cursor: pointer; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; }
 .multi-mode-btn.on { background: #fef9ef; border-color: #d97706; color: #d97706; font-weight: 500; }
 </style>
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
 </head>
 <body>
 
@@ -696,5 +700,6 @@ document.getElementById('add-off-input').addEventListener('keydown',  e => { if 
 renderCal();
 renderCalPreview();
 </script>
+<script>if("serviceWorker"in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/cleaning-list/sw.js");})}</script>
 </body>
 </html>
