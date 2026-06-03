@@ -2,266 +2,138 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="掃除リスト">
-<title>毎日の掃除チェックリスト</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="apple-mobile-web-app-title" content="清掃リスト">
+<link rel="apple-touch-icon" href="/icon.png">
+<title>一日一箇所清掃リスト</title>
+
 <style>
 :root {
-  --bg: #f5f3ee;
-  --surface: #ffffff;
-  --text: #1a1a18;
-  --muted: #888780;
-  --border: rgba(0,0,0,0.1);
-  --work: #2563eb;
-  --work-bg: #eff6ff;
-  --off: #16a34a;
-  --off-bg: #f0fdf4;
-  --accent: #1a1a18;
-  --radius: 14px;
-  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --bg: #f5f3ee; --surface: #fff; --text: #1a1a18; --muted: #888780;
+  --border: rgba(0,0,0,0.1); --work: #2563eb; --work-bg: #eff6ff;
+  --off: #16a34a; --off-bg: #f0fdf4; --accent: #1a1a18;
+  --radius: 14px; --shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  max-width: 480px;
-  margin: 0 auto;
-}
-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 1rem 1.25rem 0.875rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-header h1 {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-header .sub {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 2px;
-}
-.tabs {
-  display: flex;
-  gap: 0;
-  background: var(--bg);
-  padding: 0.75rem 1rem;
-  gap: 8px;
-}
-.tab {
-  flex: 1;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1.5px solid transparent;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: 'Noto Sans JP', sans-serif;
-  cursor: pointer;
-  text-align: center;
-  background: var(--surface);
-  color: var(--muted);
-  transition: all 0.15s;
-}
-.tab.active-work { background: var(--work-bg); border-color: var(--work); color: var(--work); }
-.tab.active-off  { background: var(--off-bg);  border-color: var(--off);  color: var(--off); }
-.page { display: none; }
-.page.active { display: block; }
+body { font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; max-width: 480px; margin: 0 auto; }
+header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 1.25rem 0.875rem; position: sticky; top: 0; z-index: 10; }
+header h1 { font-size: 16px; font-weight: 700; }
+header .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.tabs { display: flex; background: var(--bg); padding: 0.75rem 1rem; gap: 8px; }
+.tab { flex: 1; padding: 10px; border-radius: 10px; border: 1.5px solid transparent; font-size: 13px; font-weight: 500; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; cursor: pointer; text-align: center; background: var(--surface); color: var(--muted); transition: all 0.15s; }
+.tab.active { background: var(--work-bg); border-color: var(--work); color: var(--work); }
+.page { display: none; } .page.active { display: block; }
 
 /* Calendar */
 .cal-section { padding: 0 1rem 1rem; }
-.cal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.875rem 0 0.75rem;
-}
+.cal-header { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 0 0.75rem; }
 .cal-header span { font-size: 15px; font-weight: 700; }
-.cal-header button {
-  background: none; border: none; font-size: 20px;
-  color: var(--muted); cursor: pointer; padding: 4px 8px;
-  font-family: monospace;
-}
-.cal-legend {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 0.75rem;
-  flex-wrap: wrap;
-}
-.leg {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 12px; color: var(--muted); cursor: pointer;
-  padding: 5px 10px; border-radius: 20px;
-  background: var(--surface); border: 1px solid var(--border);
-  transition: all 0.15s;
-}
+.cal-header button { background: none; border: none; font-size: 20px; color: var(--muted); cursor: pointer; padding: 4px 8px; font-family: monospace; }
+.cal-legend { display: flex; gap: 8px; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.leg { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); cursor: pointer; padding: 5px 10px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); transition: all 0.15s; }
 .leg.sel-work { background: var(--work-bg); border-color: var(--work); color: var(--work); font-weight: 500; }
 .leg.sel-off  { background: var(--off-bg);  border-color: var(--off);  color: var(--off);  font-weight: 500; }
 .leg.sel-none { background: #fef9ef; border-color: #d97706; color: #d97706; font-weight: 500; }
 .dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-work { background: var(--work); }
-.dot-off  { background: var(--off); }
-.dot-none { background: #d97706; }
-.day-names {
-  display: grid; grid-template-columns: repeat(7,1fr);
-  gap: 4px; margin-bottom: 4px;
-}
-.day-names span {
-  text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0;
-}
-.cal-grid {
-  display: grid; grid-template-columns: repeat(7,1fr); gap: 4px;
-}
-.dc {
-  min-height: 56px; border-radius: 8px;
-  display: flex; flex-direction: column; align-items: center;
-  justify-content: flex-start; padding: 4px 2px;
-  font-size: 13px; font-weight: 500;
-  cursor: pointer; border: 1.5px solid transparent;
-  background: var(--surface); color: var(--text);
-  transition: all 0.12s; position: relative; overflow: hidden;
-}
-.dc-num { font-size: 13px; font-weight: 500; line-height: 1.4; flex-shrink: 0; }
-.dc-tasks { width: 100%; margin-top: 2px; }
-.dc-task { font-size: 8px; line-height: 1.3; white-space: nowrap; overflow: hidden;
-  text-overflow: ellipsis; text-align: left; padding: 0 2px; opacity: 0.85; }
-.dc-task.done-task { opacity: 0.4; text-decoration: line-through; }
+.dot-work { background: var(--work); } .dot-off { background: var(--off); } .dot-none { background: #d97706; }
+.day-names { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; margin-bottom: 4px; }
+.day-names span { text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0; }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 4px; }
+.dc { min-height: 56px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 4px 2px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid transparent; background: var(--surface); color: var(--text); transition: all 0.12s; overflow: hidden; user-select: none; }
 .dc:active { transform: scale(0.93); }
 .dc.today { border-color: var(--accent); }
 .dc.work { background: var(--work-bg); color: var(--work); border-color: var(--work); }
 .dc.off  { background: var(--off-bg);  color: var(--off);  border-color: var(--off); }
 .dc.empty { background: none; border: none; cursor: default; }
+.dc-num { font-size: 13px; font-weight: 500; line-height: 1.4; flex-shrink: 0; }
+.dc-task { font-size: 8px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: left; padding: 0 2px; opacity: 0.85; }
+.dc-task.done-task { opacity: 0.4; }
 
-/* Tasks page */
-.tasks-section { padding: 0 1rem; }
-.today-banner {
-  margin: 0.875rem 0 1rem;
-  padding: 12px 14px;
-  border-radius: var(--radius);
-  font-size: 13px;
-  font-weight: 500;
-}
+/* Modal */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 100; align-items: flex-end; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal-box { background: var(--surface); border-radius: 20px 20px 0 0; width: 100%; max-width: 480px; max-height: 85vh; overflow-y: auto; padding: 1.25rem 1.25rem 2rem; }
+.modal-title { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+.modal-sub { font-size: 12px; color: var(--muted); margin-bottom: 1rem; }
+.modal-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 8px; margin-top: 1rem; }
+.modal-select { width: 100%; font-size: 15px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; margin-bottom: 0; }
+
+
+
+
+
+.modal-add-area input { flex: 1; border: none; outline: none; font-size: 14px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 10px 12px; background: none; color: var(--text); }
+.modal-add-area input::placeholder { color: var(--muted); }
+.modal-add-area button { background: none; border: none; border-left: 1px solid var(--border); padding: 10px 14px; font-size: 18px; cursor: pointer; color: var(--muted); }
+.modal-btns { display: flex; gap: 8px; margin-top: 1rem; }
+.modal-btn { flex: 1; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 500; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; cursor: pointer; border: none; }
+.modal-btn.cancel { background: var(--bg); color: var(--muted); }
+.modal-btn.ok { background: var(--work-bg); color: var(--work); }
+
+/* Check page */
+.check-section { padding: 0 1rem 2rem; }
+.today-banner { margin: 0.875rem 0 1rem; padding: 12px 14px; border-radius: var(--radius); font-size: 13px; font-weight: 500; }
 .today-banner.work { background: var(--work-bg); color: var(--work); }
 .today-banner.off  { background: var(--off-bg);  color: var(--off); }
 .today-banner.none { background: #fffbeb; color: #92400e; }
-.progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin: 0.5rem 0 1.25rem; }
-.progress-fill { height: 100%; border-radius: 2px; transition: width 0.3s; background: var(--work); }
-.progress-fill.off { background: var(--off); }
-.task-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  margin-bottom: 0.75rem;
-}
-.task-row {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: background 0.12s;
-  -webkit-user-select: none;
-}
+.section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); padding: 0 0 0.5rem; }
+.task-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 1rem; }
+.task-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
 .task-row:last-child { border-bottom: none; }
-.task-row:active { background: var(--bg); }
-.chk {
-  width: 22px; height: 22px; border-radius: 50%;
-  border: 2px solid var(--border);
-  flex-shrink: 0; display: flex; align-items: center;
-  justify-content: center; transition: all 0.15s;
-  font-size: 12px; color: white;
-}
-.task-row.done .chk { background: var(--off); border-color: var(--off); }
-.task-row.done-work .chk { background: var(--work); border-color: var(--work); }
-.task-lbl { font-size: 15px; flex: 1; transition: color 0.15s; }
-.task-row.done .task-lbl, .task-row.done-work .task-lbl {
-  color: var(--muted); text-decoration: line-through;
-}
-.del-btn {
-  background: none; border: none; color: var(--muted);
-  font-size: 18px; cursor: pointer; padding: 4px; line-height: 1;
-  opacity: 0.4; transition: opacity 0.15s;
-}
-.del-btn:hover { opacity: 1; }
-.add-area {
-  background: var(--surface);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  display: flex; align-items: center; gap: 0;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-}
-.add-area input {
-  flex: 1; border: none; outline: none;
-  font-size: 15px; font-family: 'Noto Sans JP', sans-serif;
-  padding: 14px 16px; background: none; color: var(--text);
-}
+.chk { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; font-size: 12px; color: white; cursor: pointer; }
+.chk.done-work { background: var(--work); border-color: var(--work); }
+.chk.done-off  { background: var(--off);  border-color: var(--off); }
+.task-lbl { font-size: 15px; flex: 1; }
+.task-lbl.done { color: var(--muted); }
+.done-mark { font-size: 12px; color: var(--off); margin-top: 2px; }
+.picker-card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+.picker-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+.picker-select { width: 100%; font-size: 15px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.reset-btn { background: none; border: 1px solid var(--border); border-radius: 20px; padding: 8px 20px; font-size: 12px; color: var(--muted); cursor: pointer; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; display: block; margin: 0 auto 1rem; }
+
+/* Edit page */
+.edit-section { padding: 0 1rem 2rem; }
+.edit-group { margin-bottom: 1.5rem; }
+.edit-group-title { font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
+.edit-item { display: flex; align-items: center; gap: 8px; background: var(--surface); border-radius: 10px; padding: 10px 12px; margin-bottom: 6px; box-shadow: var(--shadow); }
+.edit-input { flex: 1; border: none; outline: none; font-size: 14px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; background: none; color: var(--text); }
+.edit-del { background: none; border: none; font-size: 18px; color: var(--muted); cursor: pointer; padding: 2px 4px; opacity: 0.5; }
+.add-area { display: flex; align-items: center; background: var(--surface); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+.add-area input { flex: 1; border: none; outline: none; font-size: 14px; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; padding: 12px 14px; background: none; color: var(--text); }
 .add-area input::placeholder { color: var(--muted); }
-.add-area button {
-  background: none; border: none; border-left: 1px solid var(--border);
-  padding: 14px 18px; font-size: 22px; cursor: pointer;
-  color: var(--muted); transition: color 0.15s;
-}
-.add-area button:active { color: var(--text); }
-.reset-row {
-  text-align: center; padding-bottom: 2rem;
-}
-.reset-btn {
-  background: none; border: 1px solid var(--border);
-  border-radius: 20px; padding: 8px 20px;
-  font-size: 12px; color: var(--muted); cursor: pointer;
-  font-family: 'Noto Sans JP', sans-serif;
-}
-.section-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-  color: var(--muted); text-transform: uppercase;
-  padding: 0 0 0.5rem;
-}
-.task-lbl.editing {
-  border: none; outline: none;
-  background: var(--bg);
-  border-radius: 6px;
-  padding: 2px 6px;
-  font-size: 15px;
-  font-family: 'Noto Sans JP', sans-serif;
-  color: var(--text);
-  width: 100%;
-  text-decoration: none !important;
-}
-.sub-chk {
-  width: 16px; height: 16px; border-radius: 3px;
-  border: 1.5px solid var(--border);
-  flex-shrink: 0; display: flex; align-items: center;
-  justify-content: center; transition: all 0.15s;
-  font-size: 10px; color: white; cursor: pointer;
-  margin-left: 4px;
-}
-.sub-chk.on { background: #f59e0b; border-color: #f59e0b; }
-.edit-hint {
-  font-size: 11px; color: var(--muted);
-  text-align: right; padding: 0 16px 8px;
-}
+.add-area button { background: none; border: none; border-left: 1px solid var(--border); padding: 12px 16px; font-size: 20px; cursor: pointer; color: var(--muted); }
+
+/* 複数選択モード */
+.bulk-bar { display: none; background: var(--surface); border-top: 1px solid var(--border); padding: 0.75rem 1rem; position: sticky; bottom: 0; z-index: 20; }
+.bulk-bar.active { display: block; }
+.bulk-bar-title { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.bulk-bar-btns { display: flex; gap: 8px; }
+.bulk-bar-btn { flex: 1; padding: 9px; border-radius: 10px; border: none; font-size: 13px; font-weight: 500; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; cursor: pointer; }
+.bulk-bar-btn.work { background: var(--work-bg); color: var(--work); }
+.bulk-bar-btn.off  { background: var(--off-bg);  color: var(--off); }
+.bulk-bar-btn.clr  { background: #fef9ef; color: #d97706; }
+.bulk-bar-btn.cancel { background: var(--bg); color: var(--muted); }
+.dc.selected { outline: 3px solid #f59e0b; outline-offset: -2px; }
+.multi-mode-btn { font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 20px; padding: 4px 12px; cursor: pointer; font-family: -apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif; }
+.multi-mode-btn.on { background: #fef9ef; border-color: #d97706; color: #d97706; font-weight: 500; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🧹 毎日の掃除リスト</h1>
+  <h1>🧹 一日一箇所清掃リスト</h1>
   <div class="sub" id="hdate"></div>
 </header>
 
 <div class="tabs">
-  <button class="tab active-work" id="tab-cal" onclick="showPage('cal')">📅 カレンダー</button>
-  <button class="tab" id="tab-tasks" onclick="showPage('tasks')">✅ チェック</button>
+  <button class="tab active" id="tab-cal" onclick="showPage('cal')">📅 カレンダー</button>
+  <button class="tab" id="tab-edit" onclick="showPage('edit')">✏️ 編集</button>
 </div>
 
 <!-- Calendar page -->
@@ -271,42 +143,77 @@ header .sub {
       <button onclick="changeMonth(-1)">‹</button>
       <span id="cal-month-label"></span>
       <button onclick="changeMonth(1)">›</button>
+      <button class="multi-mode-btn" id="multi-btn" onclick="toggleMultiMode()">複数選択</button>
     </div>
     <div class="cal-legend">
-      <div class="leg sel-work" id="leg-work" onclick="setMode('work')">
-        <div class="dot dot-work"></div>仕事の日
-      </div>
-      <div class="leg" id="leg-off" onclick="setMode('off')">
-        <div class="dot dot-off"></div>休みの日
-      </div>
-      <div class="leg" id="leg-none" onclick="setMode('none')">
-        <div class="dot dot-none"></div>クリア
+      <div class="leg" id="leg-work" onclick="setMode('work')"><div class="dot dot-work"></div>仕事の日</div>
+      <div class="leg" id="leg-off" onclick="setMode('off')"><div class="dot dot-off"></div>休みの日</div>
+      <div class="leg" id="leg-none" onclick="setMode('none')"><div class="dot dot-none"></div>クリア</div>
+    </div>
+    <div id="bulk-area" style="display:none;background:var(--surface);border-radius:var(--radius);padding:1rem;margin-bottom:0.75rem;box-shadow:var(--shadow);">
+      <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;">一括登録する曜日を選択</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;" id="bulk-days"></div>
+      <div style="display:flex;gap:8px;">
+        <button onclick="bulkApply()" style="flex:1;padding:9px;border-radius:10px;border:none;font-size:13px;font-weight:500;font-family:-apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;cursor:pointer;background:var(--work-bg);color:var(--work);" id="bulk-apply-btn">この曜日に一括設定</button>
+        <button onclick="closeBulk()" style="padding:9px 14px;border-radius:10px;border:none;font-size:13px;font-family:-apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;cursor:pointer;background:var(--bg);color:var(--muted);">閉じる</button>
       </div>
     </div>
-    <div class="day-names">
-      <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
-    </div>
+    <div class="day-names"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
     <div class="cal-grid" id="cal-grid"></div>
   </div>
-  <div class="cal-section" id="cal-task-preview" style="padding-top:0;"></div>
+  <div style="padding:0 1rem 2rem;" id="cal-preview"></div>
+  <div class="bulk-bar" id="bulk-bar">
+    <div class="bulk-bar-title" id="bulk-bar-title">0日選択中</div>
+    <div class="bulk-bar-btns">
+      <button class="bulk-bar-btn work" onclick="bulkApplyType('work')">仕事の日</button>
+      <button class="bulk-bar-btn off"  onclick="bulkApplyType('off')">休みの日</button>
+      <button class="bulk-bar-btn clr"  onclick="bulkApplyType('none')">クリア</button>
+      <button class="bulk-bar-btn cancel" onclick="toggleMultiMode()">解除</button>
+    </div>
+  </div>
 </div>
 
-<!-- Tasks page -->
-<div class="page" id="page-tasks">
-  <div class="tasks-section">
-    <div class="today-banner none" id="today-banner">―</div>
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-
-    <div class="section-label" id="task-section-label">タスク</div>
-    <div class="task-card" id="task-list"></div>
-
-    <div class="add-area">
-      <input type="text" id="add-input" placeholder="タスクを追加…" maxlength="40">
-      <button onclick="addTask()">＋</button>
+<!-- Edit page -->
+<div class="page" id="page-edit">
+  <div class="edit-section" style="padding-top:1rem;">
+    <div class="edit-group">
+      <div class="edit-group-title"><span style="width:10px;height:10px;border-radius:50%;background:var(--work);display:inline-block;"></span>仕事の日の候補</div>
+      <div id="edit-work-list"></div>
+      <div class="add-area">
+        <input type="text" id="add-work-input" placeholder="候補を追加…" maxlength="30">
+        <button onclick="addItem('work')">＋</button>
+      </div>
     </div>
+    <div class="edit-group">
+      <div class="edit-group-title"><span style="width:10px;height:10px;border-radius:50%;background:var(--off);display:inline-block;"></span>休みの日の候補</div>
+      <div id="edit-off-list"></div>
+      <div class="add-area">
+        <input type="text" id="add-off-input" placeholder="候補を追加…" maxlength="30">
+        <button onclick="addItem('off')">＋</button>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;padding-bottom:2rem;">
+  </div>
+</div>
 
-    <div class="reset-row">
-      <button class="reset-btn" onclick="resetToday()">本日のチェックをリセット</button>
+<!-- Day Modal -->
+<div class="modal-overlay" id="day-modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+
+    <div class="modal-section-label">今日の清掃箇所</div>
+    <select class="modal-select" id="modal-select">
+      <option value="">― 選択なし ―</option>
+    </select>
+
+    <div style="margin-bottom:0.75rem;">
+      <button id="modal-done-btn" onclick="toggleModalDone()" style="width:100%;padding:10px;border-radius:10px;border:1.5px solid var(--border);font-size:14px;font-weight:500;font-family:-apple-system, 'Hiragino Sans', 'Yu Gothic', sans-serif;cursor:pointer;background:var(--bg);color:var(--muted);">完了にする</button>
+    </div>
+    <div class="modal-btns">
+      <button class="modal-btn cancel" onclick="closeModalDirect()">キャンセル</button>
+      <button class="modal-btn ok" id="modal-ok" onclick="commitModal()">決定</button>
     </div>
   </div>
 </div>
@@ -318,50 +225,127 @@ const now = new Date();
 const todayY = now.getFullYear(), todayM = now.getMonth(), todayD = now.getDate();
 
 let calYear = todayY, calMonth = todayM;
-let mode = 'work';
-let schedule = JSON.parse(localStorage.getItem('cs2-sched') || '{}');
-let workTasks = JSON.parse(localStorage.getItem('cs2-work') || '["洗面台を拭く"]');
-let offTasks  = JSON.parse(localStorage.getItem('cs2-off')  || '["お風呂を洗う","キッチンのコンロを磨く","リビングを掃除機がけ","窓を拭く","ベッドシーツを整える"]');
-let checks = JSON.parse(localStorage.getItem('cs2-chk-' + todayD) || '[]');
-let subchecks = JSON.parse(localStorage.getItem('cs2-sub-' + todayD) || '[]');
+let calMode = '';
+let multiMode = false;
+let multiSelected = [];
+
+function lsGet(key, def) { try { return JSON.parse(localStorage.getItem(key) || def); } catch(e) { return JSON.parse(def); } }
+function lsSet(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {} }
+
+let schedule      = lsGet('cl2-sched',   '{}');
+let workItems     = lsGet('cl2-work',    '["掃除機","玄関","窓"]');
+let offItems      = lsGet('cl2-off',     '["バスルーム","トイレ","キッチン","洗面所","埃取り","リビング空調","クローゼット"]');
+let selectedByDay = lsGet('cl2-selmap',  '{}');
+let doneByDay     = lsGet('cl2-donemap', '{}');
+
+// 今日キー
+const todayKey = todayY + '-' + todayM + '-' + todayD;
+let todaySelected = selectedByDay[todayKey] || '';
+let todayDone     = doneByDay[todayKey] === '1';
+
+let modalKey = null;
+let modalType = null;
+let modalWorkItems = [];
+let modalOffItems  = [];
 
 function save() {
-  localStorage.setItem('cs2-sched', JSON.stringify(schedule));
-  localStorage.setItem('cs2-work', JSON.stringify(workTasks));
-  localStorage.setItem('cs2-off', JSON.stringify(offTasks));
-  localStorage.setItem('cs2-chk-' + todayD, JSON.stringify(checks));
-  localStorage.setItem('cs2-sub-' + todayD, JSON.stringify(subchecks));
+  selectedByDay[todayKey] = todaySelected;
+  doneByDay[todayKey] = todayDone ? '1' : '0';
+  lsSet('cl2-sched',   schedule);
+  lsSet('cl2-work',    workItems);
+  lsSet('cl2-off',     offItems);
+  lsSet('cl2-selmap',  selectedByDay);
+  lsSet('cl2-donemap', doneByDay);
+}
+
+function todayType() {
+  return schedule[todayKey] || null;
 }
 
 function showPage(p) {
-  document.getElementById('page-cal').classList.toggle('active', p === 'cal');
-  document.getElementById('page-tasks').classList.toggle('active', p === 'tasks');
-  document.getElementById('tab-cal').className = 'tab' + (p === 'cal' ? ' active-work' : '');
-  document.getElementById('tab-tasks').className = 'tab' + (p === 'tasks' ? ' active-work' : '');
-  if (p === 'tasks') renderTasks();
-  if (p === 'cal') renderCalPreview();
+  ['cal','edit'].forEach(id => {
+    document.getElementById('page-' + id).classList.toggle('active', id === p);
+    document.getElementById('tab-' + id).classList.toggle('active', id === p);
+  });
+  if (p === 'edit')  renderEdit();
+  if (p === 'cal')   { renderCal(); renderCalPreview(); }
 }
 
 function setMode(m) {
-  mode = m;
-  document.getElementById('leg-work').className = 'leg' + (m === 'work' ? ' sel-work' : '');
-  document.getElementById('leg-off').className  = 'leg' + (m === 'off'  ? ' sel-off'  : '');
-  document.getElementById('leg-none').className = 'leg' + (m === 'none' ? ' sel-none' : '');
+  calMode = (calMode === m) ? '' : m;
+  document.getElementById('leg-work').className = 'leg' + (calMode === 'work' ? ' sel-work' : '');
+  document.getElementById('leg-off').className  = 'leg' + (calMode === 'off'  ? ' sel-off'  : '');
+  document.getElementById('leg-none').className = 'leg' + (calMode === 'none' ? ' sel-none' : '');
+  const bulk = document.getElementById('bulk-area');
+  if (calMode === 'work' || calMode === 'off' || calMode === 'none') {
+    bulkSelectedDays = [];
+    bulk.style.display = 'block';
+    const applyBtn = document.getElementById('bulk-apply-btn');
+    if (calMode === 'work') { applyBtn.style.background = 'var(--work-bg)'; applyBtn.style.color = 'var(--work)'; }
+    else if (calMode === 'off') { applyBtn.style.background = 'var(--off-bg)'; applyBtn.style.color = 'var(--off)'; }
+    else { applyBtn.style.background = '#fef9ef'; applyBtn.style.color = '#d97706'; }
+    renderBulkDays();
+  } else {
+    bulk.style.display = 'none';
+    bulkSelectedDays = [];
+  }
+}
+
+let bulkSelectedDays = [];
+const DAY_LABELS = ['日','月','火','水','木','金','土'];
+
+function renderBulkDays() {
+  const container = document.getElementById('bulk-days');
+  container.innerHTML = '';
+  DAY_LABELS.forEach((label, i) => {
+    const btn = document.createElement('button');
+    const sel = bulkSelectedDays.includes(i);
+    btn.textContent = label;
+    btn.style.cssText = 'padding:6px 12px;border-radius:20px;border:1.5px solid ' + (sel ? (calMode==='work'?'var(--work)':'var(--off)') : 'var(--border)') + ';background:' + (sel ? (calMode==='work'?'var(--work-bg)':'var(--off-bg)') : 'var(--surface)') + ';color:' + (sel ? (calMode==='work'?'var(--work)':'var(--off)') : 'var(--muted)') + ';font-size:13px;font-weight:500;font-family:Noto Sans JP,sans-serif;cursor:pointer;';
+    btn.onclick = () => {
+      if (bulkSelectedDays.includes(i)) bulkSelectedDays = bulkSelectedDays.filter(x => x !== i);
+      else bulkSelectedDays.push(i);
+      renderBulkDays();
+    };
+    container.appendChild(btn);
+  });
+}
+
+function bulkApply() {
+  if (bulkSelectedDays.length === 0) return;
+  const days = new Date(calYear, calMonth + 1, 0).getDate();
+  for (let d = 1; d <= days; d++) {
+    const dow = new Date(calYear, calMonth, d).getDay();
+    if (bulkSelectedDays.includes(dow)) {
+      const key = calYear + '-' + calMonth + '-' + d;
+      schedule[key] = calMode;
+    }
+  }
+  save(); renderCal(); renderCalPreview();
+}
+
+function closeBulk() {
+  document.getElementById('bulk-area').style.display = 'none';
+  calMode = '';
+  document.getElementById('leg-work').className = 'leg';
+  document.getElementById('leg-off').className  = 'leg';
+  document.getElementById('leg-none').className = 'leg';
 }
 
 function changeMonth(d) {
   calMonth += d;
-  if (calMonth < 0) { calMonth = 11; calYear--; }
-  if (calMonth > 11) { calMonth = 0; calYear++; }
+  if (calMonth < 0)  { calMonth = 11; calYear--; }
+  if (calMonth > 11) { calMonth = 0;  calYear++; }
   renderCal();
 }
 
 function renderCal() {
   document.getElementById('cal-month-label').textContent = calYear + '年 ' + MONTHS[calMonth];
+  // preview will be rendered at end of renderCal
   const grid = document.getElementById('cal-grid');
   grid.innerHTML = '';
   const first = new Date(calYear, calMonth, 1).getDay();
-  const days = new Date(calYear, calMonth + 1, 0).getDate();
+  const days  = new Date(calYear, calMonth + 1, 0).getDate();
   for (let i = 0; i < first; i++) {
     const el = document.createElement('div');
     el.className = 'dc empty'; grid.appendChild(el);
@@ -371,7 +355,7 @@ function renderCal() {
     const type = schedule[key];
     const isToday = (calYear === todayY && calMonth === todayM && d === todayD);
     const el = document.createElement('div');
-    el.className = 'dc' + (type ? ' ' + type : '') + (isToday ? ' today' : '');
+    el.className = 'dc' + (type ? ' ' + type : '') + (isToday ? ' today' : '') + (multiSelected.includes(key) ? ' selected' : '');
 
     const numDiv = document.createElement('div');
     numDiv.className = 'dc-num';
@@ -379,216 +363,338 @@ function renderCal() {
     el.appendChild(numDiv);
 
     if (type) {
-      const dayTasks = type === 'work' ? workTasks : offTasks;
-      const dayChecks = calYear === todayY && calMonth === todayM
-        ? checks : [];
-      const tasksDiv = document.createElement('div');
-      tasksDiv.className = 'dc-tasks';
-      dayTasks.forEach((t, ti) => {
+      const taskName = selectedByDay[key] || '';
+      const isDone = doneByDay[key] === '1';
+      if (taskName) {
         const tEl = document.createElement('div');
-        tEl.className = 'dc-task' + (dayChecks.includes(ti) ? ' done-task' : '');
-        tEl.textContent = '· ' + t;
-        tasksDiv.appendChild(tEl);
-      });
-      el.appendChild(tasksDiv);
+        tEl.className = 'dc-task' + (isDone ? ' done-task' : '');
+        tEl.textContent = '· ' + taskName;
+        el.appendChild(tEl);
+        if (isDone) {
+          const doneEl = document.createElement('div');
+          doneEl.style.cssText = 'font-size:10px;color:var(--off);font-weight:700;';
+          doneEl.textContent = '✓';
+          el.appendChild(doneEl);
+        }
+      }
     }
 
     el.onclick = () => {
-      if (mode === 'none') delete schedule[key];
-      else schedule[key] = mode;
-      save(); renderCal();
+      if (multiMode) {
+        if (el.classList.contains('selected')) {
+          multiSelected = multiSelected.filter(k => k !== key);
+          el.classList.remove('selected');
+        } else {
+          multiSelected.push(key);
+          el.classList.add('selected');
+        }
+        updateBulkBar();
+        return;
+      }
+      if (calMode !== '') {
+        if (calMode === 'none') delete schedule[key];
+        else schedule[key] = calMode;
+        save(); renderCal(); renderCalPreview();
+        return;
+      }
+      if (type) {
+        openModal(key, d, type);
+      }
     };
     grid.appendChild(el);
   }
+}
+
+/* ---- Modal ---- */
+function openModal(key, d, type) {
+  modalKey  = key;
+  modalType = type;
+  // 作業コピーを作成（キャンセル時に元に戻せるよう）
+  modalWorkItems = [...workItems];
+  modalOffItems  = [...offItems];
+
+  const mn = calMonth + 1;
+  document.getElementById('modal-title').textContent = calYear + '年' + mn + '月' + d + '日';
+  document.getElementById('modal-sub').textContent   = type === 'work' ? '仕事の日' : '休みの日';
+
+  const okBtn = document.getElementById('modal-ok');
+  okBtn.style.background = type === 'work' ? 'var(--work-bg)' : 'var(--off-bg)';
+  okBtn.style.color = type === 'work' ? 'var(--work)' : 'var(--off)';
+
+  refreshModalSelect();
+  refreshModalDoneBtn();
+  document.getElementById('day-modal').classList.add('open');
+}
+
+function refreshModalDoneBtn() {
+  const btn = document.getElementById('modal-done-btn');
+  if (!btn) return;
+  const isDone = doneByDay[modalKey] === '1';
+  btn.textContent = isDone ? '✓ 完了済み' : '完了にする';
+  btn.style.background = isDone ? 'var(--off-bg)' : 'var(--bg)';
+  btn.style.color = isDone ? 'var(--off)' : 'var(--muted)';
+  btn.style.borderColor = isDone ? 'var(--off)' : 'var(--border)';
+}
+
+function toggleModalDone() {
+  const isDone = doneByDay[modalKey] === '1';
+  doneByDay[modalKey] = isDone ? '0' : '1';
+  if (modalKey === todayKey) todayDone = !isDone;
+  save();
+  refreshModalDoneBtn();
+  renderCal();
   renderCalPreview();
 }
 
-function renderCalPreview() {
-  const preview = document.getElementById('cal-task-preview');
-  if (!preview) return;
+function refreshModalSelect() {
+  const items = modalType === 'work' ? modalWorkItems : modalOffItems;
+  const current = selectedByDay[modalKey] || '';
+  const sel = document.getElementById('modal-select');
+  sel.innerHTML = '<option value="">― 選択なし ―</option>';
+  items.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item; opt.textContent = item;
+    if (item === current) opt.selected = true;
+    sel.appendChild(opt);
+  });
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('day-modal')) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('day-modal').classList.remove('open');
+  modalKey = null;
+}
+
+function commitModal() {
+  if (!modalKey) return;
+  const val = document.getElementById('modal-select').value;
+  if (val) selectedByDay[modalKey] = val;
+  else delete selectedByDay[modalKey];
+
+  // 今日なら todaySelected も更新
+  if (modalKey === todayKey) {
+    todaySelected = val;
+    todayDone = false;
+    doneByDay[todayKey] = '0';
+  }
+
+  save();
+  closeModalDirect();
+  renderCal();
+  renderCalPreview();
+  if (document.getElementById('page-check').classList.contains('active')) renderCheck();
+  if (document.getElementById('page-edit').classList.contains('active')) renderEdit();
+}
+
+/* ---- Check page ---- */
+function renderCheck() {
   const type = todayType();
-  const tasks = type === 'work' ? workTasks : type === 'off' ? offTasks : [];
   const mn = todayM + 1;
-
-  if (!type) {
-    preview.innerHTML = '<div style="padding:12px 0 4px;font-size:13px;color:var(--muted);">今日の種別を設定してください</div>';
-    return;
-  }
-
-  let html = '<div style="padding:12px 0 6px;">';
-  html += '<div class="section-label" style="margin-bottom:8px;">今日のやること（' + mn + '月' + todayD + '日）</div>';
-  if (tasks.length === 0) {
-    html += '<div style="font-size:13px;color:var(--muted);padding:4px 0;">タスクがありません</div>';
-  } else {
-    html += '<div class="task-card" style="margin-bottom:0;">';
-    tasks.forEach((t, i) => {
-      const isDone = checks.includes(i);
-      const isSub = subchecks.includes(i);
-      const color = type === 'work' ? 'var(--work)' : 'var(--off)';
-      html += '<div class="task-row" style="padding:10px 14px;' + (isDone ? 'opacity:0.5;' : '') + '">'
-        + '<div class="chk" style="' + (isDone ? 'background:' + color + ';border-color:' + color + ';' : '') + 'width:18px;height:18px;font-size:10px;">' + (isDone ? '✓' : '') + '</div>'
-        + '<span class="task-lbl" style="font-size:14px;' + (isDone ? 'text-decoration:line-through;color:var(--muted);' : '') + '">' + t + '</span>'
-        + '<div class="sub-chk' + (isSub ? ' on' : '') + '" style="pointer-events:none;">' + (isSub ? '✓' : '') + '</div>'
-        + '</div>';
-    });
-    html += '</div>';
-  }
-  html += '</div>';
-  preview.innerHTML = html;
-}
-
-function todayType() {
-  return schedule[todayY + '-' + todayM + '-' + todayD] || null;
-}
-
-function renderTasks() {
-  const type = todayType();
-  const tasks = type === 'work' ? workTasks : type === 'off' ? offTasks : [];
   const banner = document.getElementById('today-banner');
-  const label = document.getElementById('task-section-label');
-  const fill = document.getElementById('progress-fill');
-  const mn = todayM + 1;
   if (!type) {
     banner.className = 'today-banner none';
     banner.textContent = mn + '月' + todayD + '日 — カレンダーで今日の種別を設定してください';
-    label.textContent = '―';
-    fill.style.width = '0%';
-    fill.className = 'progress-fill';
   } else {
     banner.className = 'today-banner ' + type;
     banner.textContent = mn + '月' + todayD + '日は' + (type === 'work' ? '仕事の日' : '休みの日') + 'です';
-    label.textContent = type === 'work' ? '仕事の日のタスク' : '休みの日のタスク';
-    const pct = tasks.length ? Math.round(checks.length / tasks.length * 100) : 0;
-    fill.style.width = pct + '%';
-    fill.className = 'progress-fill' + (type === 'off' ? ' off' : '');
   }
+  const items = type === 'work' ? workItems : type === 'off' ? offItems : [];
+  const picker = document.getElementById('task-picker');
+  document.getElementById('picker-label').textContent = type ? '今日の清掃箇所を選んでください' : '種別を設定すると選択できます';
+  picker.innerHTML = '<option value="">― 選択 ―</option>';
+  items.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item; opt.textContent = item;
+    if (item === todaySelected) opt.selected = true;
+    picker.appendChild(opt);
+  });
+  picker.disabled = !type;
+  renderSelected(type);
+}
 
-  const list = document.getElementById('task-list');
-  list.innerHTML = '';
-  if (!type || tasks.length === 0) {
-    const row = document.createElement('div');
-    row.style.cssText = 'padding:18px 16px;font-size:14px;color:var(--muted);';
-    row.textContent = type ? 'タスクがありません。下から追加してください。' : 'カレンダーで今日の種別を設定してください。';
-    list.appendChild(row);
+function selectTask() {
+  todaySelected = document.getElementById('task-picker').value;
+  todayDone = false;
+  save(); renderSelected(todayType()); renderCal();
+}
+
+function renderSelected(type) {
+  const area = document.getElementById('selected-area');
+  if (!todaySelected) { area.innerHTML = ''; return; }
+  const doneClass = type === 'work' ? 'done-work' : 'done-off';
+  area.innerHTML = '';
+  const card = document.createElement('div'); card.className = 'task-card';
+  const row  = document.createElement('div'); row.className  = 'task-row';
+  const chk  = document.createElement('div');
+  chk.className = 'chk' + (todayDone ? ' ' + doneClass : '');
+  chk.textContent = todayDone ? '✓' : '';
+  chk.onclick = () => { todayDone = !todayDone; save(); renderSelected(type); renderCal(); };
+  const lbl = document.createElement('span');
+  lbl.className = 'task-lbl' + (todayDone ? ' done' : '');
+  lbl.textContent = todaySelected;
+  const col = document.createElement('div');
+  col.style.cssText = 'display:flex;flex-direction:column;flex:1;';
+  col.appendChild(lbl);
+  if (todayDone) {
+    const mark = document.createElement('div');
+    mark.className = 'done-mark';
+    mark.textContent = '✓ 完了';
+    col.appendChild(mark);
+  }
+  row.appendChild(chk); row.appendChild(col);
+  card.appendChild(row); area.appendChild(card);
+}
+
+
+function renderCalPreview() {
+  const preview = document.getElementById('cal-preview');
+  if (!preview) return;
+  const type = todayType();
+  const mn = todayM + 1;
+  preview.innerHTML = '';
+
+  const titleEl = document.createElement('div');
+  titleEl.className = 'section-label';
+  titleEl.textContent = '今日のやること（' + mn + '月' + todayD + '日）';
+  preview.appendChild(titleEl);
+
+  if (!type) {
+    const msg = document.createElement('div');
+    msg.style.cssText = 'font-size:13px;color:var(--muted);padding:4px 0 8px;';
+    msg.textContent = 'カレンダーで今日の種別を設定してください';
+    preview.appendChild(msg);
     return;
   }
-  tasks.forEach((t, i) => {
-    const isDone = checks.includes(i);
-    const row = document.createElement('div');
-    row.className = 'task-row' + (isDone ? (type === 'off' ? ' done' : ' done-work') : '');
 
-    const chk = document.createElement('div');
-    chk.className = 'chk';
-    chk.textContent = isDone ? '✓' : '';
-    chk.onclick = (e) => {
-      e.stopPropagation();
-      if (checks.includes(i)) checks = checks.filter(x => x !== i);
-      else checks.push(i);
-      save(); renderTasks(); renderCalPreview();
-    };
-
-    const lbl = document.createElement('span');
-    lbl.className = 'task-lbl';
-    lbl.textContent = t;
-
-    const del = document.createElement('button');
-    del.className = 'del-btn';
-    del.textContent = '×';
-    del.onclick = (e) => { e.stopPropagation(); delTask(e, i); };
-
-    const sub = document.createElement('div');
-    sub.className = 'sub-chk' + (subchecks.includes(i) ? ' on' : '');
-    sub.title = '追加チェック';
-    sub.textContent = subchecks.includes(i) ? '✓' : '';
-    sub.onclick = (e) => {
-      e.stopPropagation();
-      if (subchecks.includes(i)) subchecks = subchecks.filter(x => x !== i);
-      else subchecks.push(i);
-      save(); renderTasks(); renderCalPreview();
-    };
-
-    let pressTimer;
-    lbl.addEventListener('pointerdown', () => {
-      pressTimer = setTimeout(() => startEdit(lbl, i, type, tasks), 500);
-    });
-    lbl.addEventListener('pointerup', () => clearTimeout(pressTimer));
-    lbl.addEventListener('pointercancel', () => clearTimeout(pressTimer));
-    lbl.ondblclick = (e) => { e.stopPropagation(); startEdit(lbl, i, type, tasks); };
-
-    row.appendChild(chk);
-    row.appendChild(lbl);
-    row.appendChild(sub);
-    row.appendChild(del);
-    list.appendChild(row);
-  });
-
-  if (tasks.length > 0) {
-    const hint = document.createElement('div');
-    hint.className = 'edit-hint';
-    hint.textContent = '長押し（またはダブルクリック）でテキスト編集';
-    list.appendChild(hint);
+  const taskName = selectedByDay[todayKey] || '';
+  if (!taskName) {
+    const msg = document.createElement('div');
+    msg.style.cssText = 'font-size:13px;color:var(--muted);padding:4px 0 8px;';
+    msg.textContent = '清掃箇所が未選択です';
+    preview.appendChild(msg);
+    return;
   }
-}
 
-function startEdit(lbl, i, type, tasks) {
-  if (lbl.tagName === 'INPUT') return;
-  const current = tasks[i];
-  const inp = document.createElement('input');
-  inp.type = 'text';
-  inp.value = current;
-  inp.className = 'task-lbl editing';
-  inp.maxLength = 40;
-  lbl.replaceWith(inp);
-  inp.focus();
-  inp.select();
-
-  function commit() {
-    const val = inp.value.trim();
-    if (val && val !== current) {
-      tasks[i] = val;
-      save();
-    }
-    renderTasks();
+  const card = document.createElement('div'); card.className = 'task-card';
+  const row  = document.createElement('div'); row.className  = 'task-row';
+  const chk  = document.createElement('div');
+  const doneClass = type === 'work' ? 'done-work' : 'done-off';
+  chk.className = 'chk' + (todayDone ? ' ' + doneClass : '');
+  chk.style.cssText = 'width:20px;height:20px;font-size:11px;';
+  chk.textContent = todayDone ? '✓' : '';
+  chk.onclick = () => {
+    todayDone = !todayDone;
+    save(); renderCalPreview(); renderCal();
+    if (document.getElementById('page-check').classList.contains('active')) renderSelected(type);
+  };
+  const lbl = document.createElement('span');
+  lbl.className = 'task-lbl' + (todayDone ? ' done' : '');
+  lbl.style.fontSize = '14px';
+  lbl.textContent = taskName;
+  const col = document.createElement('div');
+  col.style.cssText = 'display:flex;flex-direction:column;flex:1;';
+  col.appendChild(lbl);
+  if (todayDone) {
+    const mark = document.createElement('div');
+    mark.className = 'done-mark';
+    mark.textContent = '✓ 完了';
+    col.appendChild(mark);
   }
-  inp.addEventListener('blur', commit);
-  inp.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { inp.blur(); }
-    if (e.key === 'Escape') { inp.value = current; inp.blur(); }
-  });
-}
-
-function addTask() {
-  const inp = document.getElementById('add-input');
-  const val = inp.value.trim();
-  if (!val) return;
-  const type = todayType();
-  if (type === 'work') workTasks.push(val);
-  else if (type === 'off') offTasks.push(val);
-  else { alert('先にカレンダーで今日の種別を設定してください。'); return; }
-  inp.value = ''; save(); renderTasks();
-}
-
-function delTask(e, i) {
-  e.stopPropagation();
-  if (!confirm('このタスクを削除しますか？')) return;
-  const type = todayType();
-  if (type === 'work') workTasks.splice(i, 1);
-  else if (type === 'off') offTasks.splice(i, 1);
-  checks = checks.filter(x => x !== i).map(x => x > i ? x - 1 : x);
-  subchecks = subchecks.filter(x => x !== i).map(x => x > i ? x - 1 : x);
-  save(); renderTasks();
+  row.appendChild(chk); row.appendChild(col);
+  card.appendChild(row); preview.appendChild(card);
 }
 
 function resetToday() {
   if (!confirm('本日のチェックをリセットしますか？')) return;
-  checks = []; subchecks = []; save(); renderTasks(); renderCalPreview();
+  todaySelected = ''; todayDone = false;
+  delete selectedByDay[todayKey]; doneByDay[todayKey] = '0';
+  save(); renderCheck(); renderCal(); renderCalPreview();
+}
+
+/* ---- Edit page ---- */
+function renderEdit() {
+  renderEditList('work'); renderEditList('off');
+}
+
+function renderEditList(type) {
+  const items = type === 'work' ? workItems : offItems;
+  const container = document.getElementById('edit-' + type + '-list');
+  container.innerHTML = '';
+  items.forEach((item, i) => {
+    const row = document.createElement('div'); row.className = 'edit-item';
+    const inp = document.createElement('input');
+    inp.type = 'text'; inp.className = 'edit-input'; inp.value = item; inp.maxLength = 30;
+    inp.onchange = () => {
+      const val = inp.value.trim();
+      if (val) { if (type === 'work') workItems[i] = val; else offItems[i] = val; save(); }
+      else inp.value = item;
+    };
+    const del = document.createElement('button'); del.className = 'edit-del'; del.textContent = '×';
+    del.onclick = () => {
+      if (type === 'work') workItems.splice(i, 1); else offItems.splice(i, 1);
+      save(); renderEditList(type);
+    };
+    row.appendChild(inp); row.appendChild(del); container.appendChild(row);
+  });
+}
+
+function addItem(type) {
+  const inp = document.getElementById('add-' + type + '-input');
+  const val = inp.value.trim();
+  if (!val) return;
+  if (type === 'work') workItems.push(val); else offItems.push(val);
+  inp.value = ''; save(); renderEditList(type);
+}
+
+function toggleMultiMode() {
+  multiMode = !multiMode;
+  multiSelected = [];
+  const btn = document.getElementById('multi-btn');
+  const bar = document.getElementById('bulk-bar');
+  btn.className = 'multi-mode-btn' + (multiMode ? ' on' : '');
+  btn.textContent = multiMode ? '選択中...' : '複数選択';
+  bar.classList.toggle('active', multiMode);
+  updateBulkBar();
+  renderCal();
+}
+
+function updateBulkBar() {
+  document.getElementById('bulk-bar-title').textContent = multiSelected.length + '日選択中';
+}
+
+function bulkApplyType(type) {
+  if (multiSelected.length === 0) return;
+  multiSelected.forEach(key => {
+    if (type === 'none') delete schedule[key];
+    else schedule[key] = type;
+  });
+  save();
+  multiSelected = [];
+  multiMode = false;
+  const btn = document.getElementById('multi-btn');
+  const bar = document.getElementById('bulk-bar');
+  btn.className = 'multi-mode-btn';
+  btn.textContent = '複数選択';
+  bar.classList.remove('active');
+  updateBulkBar();
+  renderCal(); renderCalPreview();
+}
+
+function resetAllData() {
+  if (!confirm('全データを初期化しますか？\n※候補リスト・カレンダー設定・チェック履歴がすべて消えます')) return;
+  try { localStorage.clear(); } catch(e) {}
+  location.reload();
 }
 
 // Init
 document.getElementById('hdate').textContent = todayY + '年' + (todayM+1) + '月' + todayD + '日（' + DAYS[now.getDay()] + '）';
-document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
+document.getElementById('add-work-input').addEventListener('keydown', e => { if (e.key==='Enter') addItem('work'); });
+document.getElementById('add-off-input').addEventListener('keydown',  e => { if (e.key==='Enter') addItem('off'); });
 renderCal();
-setMode('work');
+renderCalPreview();
 </script>
 </body>
 </html>
