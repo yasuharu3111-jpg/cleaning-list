@@ -1,14 +1,14 @@
 {
-  "name": "KICK THE HABIT",
-  "short_name": "KICK THE HABIT",
-  "description": "悪い習慣を断ち切るトラッカー",
-  "start_url": "/kick-the-habit/",
+  "name": "Clean Up",
+  "short_name": "Clean Up",
+  "description": "掃除チェックリスト",
+  "start_url": "/cleaning-list/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0a0a0a",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "cake.png",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
