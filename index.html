@@ -2,531 +2,593 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>KICK THE HABIT — 習慣断ちトラッカー</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTE0IiBmaWxsPSIjZjVmMGU4Ii8+CiAgPGltYWdlIGhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCwvOWovNEFBUVNrWkpSZ0FCQVFBQUFRQUJBQUQvNGdIWVNVTkRYMUJTVDBaSlRFVUFBUUVBQUFISUFBQUFBQVF3QUFCdGJuUnlVa2RDSUZoWldpQUg0QUFCQUFFQUFBQUFBQUJoWTNOd0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFRQUE5dFlBQVFBQUFBRFRMUUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBbGtaWE5qQUFBQThBQUFBQ1J5V0ZsYUFBQUJGQUFBQUJSbldGbGFBQUFCS0FBQUFCUmlXRmxhQUFBQlBBQUFBQlIzZEhCMEFBQUJVQUFBQUJSeVZGSkRBQUFCWkFBQUFDaG5WRkpEQUFBQlpBQUFBQ2hpVkZKREFBQUJaQUFBQUNoamNISjBBQUFCakFBQUFEeHRiSFZqQUFBQUFBQUFBQUVBQUFBTVpXNVZVd0FBQUFnQUFBQWNBSE1BVWdCSEFFSllXVm9nQUFBQUFBQUFiNklBQURqMUFBQURrRmhaV2lBQUFBQUFBQUJpbVFBQXQ0VUFBQmphV0ZsYUlBQUFBQUFBQUNTZ0FBQVBoQUFBdHM5WVdWb2dBQUFBQUFBQTl0WUFBUUFBQUFEVExYQmhjbUVBQUFBQUFBUUFBQUFDWm1ZQUFQS25BQUFOV1FBQUU5QUFBQXBiQUFBQUFBQUFBQUJ0YkhWakFBQUFBQUFBQUFFQUFBQU1aVzVWVXdBQUFDQUFBQUFjQUVjQWJ3QnZBR2NBYkFCbEFDQUFTUUJ1QUdNQUxnQWdBRElBTUFBeEFEYi8yd0JEQUFVREJBUUVBd1VFQkFRRkJRVUdCd3dJQndjSEJ3OExDd2tNRVE4U0VoRVBFUkVURmh3WEV4UWFGUkVSR0NFWUdoMGRIeDhmRXhjaUpDSWVKQndlSHg3LzJ3QkRBUVVGQlFjR0J3NElDQTRlRkJFVUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDRlSGg0ZUhoNGVIaDcvd0FBUkNBSDBBZlFEQVNJQUFoRUJBeEVCLzhRQUhBQUJBUUFDQXdFQkFBQUFBQUFBQUFBQUFBRUZCZ01FQndnQy84UUFSQkFCQUFFREFnSUZCZ3NHQlFRREFBQUFBQUVDQXdRRkVTRXhCZ2NTVVpFVFFXRnhnYUVpSXpJMVFrTlNjNUt4MFFnVU0ySnl3UlZUWTNXQ0ZqUTJzaVEzay8vRUFCc0JBUUFDQXdFQkFBQUFBQUFBQUFBQUFBQUJCUUlEQkFZSC84UUFNUkVCQUFJQ0FBTUZCd01GQVFFQUFBQUFBQUVDQXhFRUJTRVNNVEp4b1FZelFXR1J3ZEZSc2ZBVEZDS0I0VkpDLzlvQURBTUJBQUlSQXhFQVB3RDZsQWNqY0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUUpCZGpZTklMc2JCcEJkallOSUxzYkJwQmRqWU5JTHNiQnBCZGpZTklMc2JCcEJkallOSUxzYkJwQmRqWU5JTHNiQnBCZGpZTklMc2JCcEJkallOSUxzYkJwQmRqWU5JTHNiQnBCZGpZTklMc2JCcEJkallOSUxzZ0FBZ0FBQUFBQUFBQUFBV0VXQk1BQWtBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUlVFU0FDQUFBQUFBQUFBQUFBQ1lSWUV3QUNRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBQUFBQUFBQUFBQUFBQUFHbWRZUFdKcEhST1p3NmFQOFExV1kzakZ0MWJSYjdwdVZmUjlYTnc5Ym5UZU9pbWwwNG1uMTB6ck9aVFBrZCtNV0tPVTNKanY4MFIzK3A4NlhibHk3ZXJ2WHJsZHk3Y3FtdXV1dWQ2cXFwNXpNK2VYQnhYRjlpZXhUdmVtNUp5T09Lait2bjhId2o1ZStmdTNuVU90cnBybFg1dVdjekZ3cU4rRnV4ajB6RVI2NnQ1bGwralhYTnJHTmVwdGRJTU96bjQwenRWZHNVK1R2VWVuYjVOWHE0UExSWHh4R1dKMzJwZXN2eWpncjA3RTRvLzFHcCt2ZSt1ZEMxZlRkYzB5MXFXbFpWR1RpM09WVWNKcG56MDFSenBtTzZYZGZMZlFEcGJuZEVOYWpNeCsxZHc3c3hUbVkyL0M3UjN4M1ZSNXA5ajZjMHpPeE5UMDdIMUhBdlUzc1hJdHhjdFZ4NTRudjdwODB3dHVHNGlNMGRlOTRUbS9Lcjh2eWRPdEo3cCswL1A5M1lBZEtvQUFBQUFBQUFBQUFBQUFBQUFBRVZCRWdBZ0FBQUFBQUFBQUFBQVdFV0JNQUFrQUFBQUFBQUFBQUFBQUFBQWRUVzlTeE5HMGZMMVhPcjdPUGkycHVWOTg3Y3FZOU16dEh0ZHQ0MSswVjBobWJ1SDBYeHJud2FZakt6TnA1ejlYVCtkWGcwNTh2OUtrMmQzTGVEbmpPSnJpK0h4OHZqL1AxZVhkSTlZek5mMXpLMWpQcTN2NU5mYTdPL0NpbjZORWVpSTRNZUNobVptZHkrcDBwV2xZcldOUkFBaGtQVlAyZitsVTRXcDFkRnMyNS84QUd6S3B1WWMxVDhpOXR4b2owVlI3NDlMeXQrN04yN2ozN2VSajF6YnZXcTRydDF4enBxaWQ0bnhiTVdTY2RvdERrNDdoS2NaZ3RodDhmU2ZoTDdER0k2RjY1YjZTZEY4SFdiZTBWWDdlMTZtUG9YYWVGY2VQNXN1OUJXMFdqY1BsV1RIYkhlYVdqckhTUUJMQUFBQUFBQUFBQUFBQUFBQUFSVUVTQUNBQUFBQUFBQUFBQUFCWVJZRXdBQ1FBQUFBQUFBQUFBQUFBQngwWDdOVTdSY2pmMDhINHpidms3WFppZmhWZTZHT2FNbWJzenFHVVYyeTErOVp4c2U3azVGVVUyYk5GVnk1VjNVeEc4KzZIeVYwaTFXOXJtdjUyc1pFejI4dTlWY2lQczAvUnA5a2JROXc2NDlXdWFaMEV5Yk5xN1ZUZHo2NmNXbUluNk04YS9kSHZlQUs3ak0zYm1LL285dDdMY0oyTWQ4ODk4OUk0bzcvWDlnQnhQVmdBQUFQWGYyY2RibWpOMUhvNWRyK0Rkby9lOGVKKzFUd3JqdzJuMlBhWHlqMEsxZXJRdWx1bDZwRXpGTm5JcGk1NmFLdmcxUjRUTDZ2bmJmaE1USG1tUFBIZXQrQnlkckgyZjBmUC9hYmhmNlhGUmtqdXZIckhTZnNnRHVlY0FBQUFBQUFBQUFBQUFBQUFFVkJFZ0FnQUFBQUFBQUFBQUFBV0VXQk1BQWtBQUFBQUFBQUFBQUFKbUtZbXFaMmlPTWpxYWhkMmlMVk0rbXBoZTNaamFZamJxM3JrM2JrMXo1K1hvaCtBVjh6dWR0cng3OW9EUDdlcmFacGRNOExOaXEvWEhwcW5hUGRIdmVaTnM2M3NtY3JyRTFQZWQ0c2VUc1UrcW1pUDFhbTRNazd0TDZieXJGL1M0UEhYNWIrdlg3Z0RCWUFBQUFKVkVWVXpUUEtZMmZWZlYvcVU2djBJMGZQcXE3VmRlTFRUY24rYW40TSsrSHlxOS84QTJmZFFvdWRBcXNXNVh0VmpadHlpTi9zMWJWUi9kMjhEZnM1TlQ0WG12YWpEMitGcmYvelA3L3lIbzRSTVRHOFRFeDZCY1BBZ0FBQUFBQUFBQUFBQUFBQUNLZ2lRQVFBQUFBQUFBQUFBQUFMQ0xBbUFBU0FBQUFBQUFBQUFBQS9OMnVMZHVhNTgzdllxcXFhcXBxcTV6Tzh1eG4zZTNjOG5FL0JwNSt0MW5GbXYycDFEWldOQ3h6aEJwWlBtN3JDN1gvWFd0ZHJuKzkxZjJZSnVIWEpnMVlmV0JtWE50cU15aWpJb256VHZHMCsrbHA2dnRHclMrcDhEZUw0Tmp0SC9BSmo5Z0JpNmdBQUFCN0wrejUyditudFgzNWZ2dEczL0FPZkY0MDkzNmtjS3JFNkMyNzFkTzFXWmtWM3YrUHlhZnlsdHcrTlJlMGQ0cndVeFB4bVB6OW00VTFWVXp2VFZOTStpWFBSbDNxZWN4WEhwaDF4M1JhYTkwdm4rb2wzNk15M1B5NmFxZmU1NkxsdXY1RmNUN1dKRzZ2RVdqdll6U0daUmpLTDk2amxYTXgzVHhjOUdiUDFsSHRwYmE1Nnozc1pyTHVEaW95Yk5mS3ZhZTZlRGw5TU4wV2llNWlBSkFBQUFBQUFBQkZRUklBSUFBQUFBQUFBQUFBQUZoRmdUQUFKQUFBQUFBQUFBQUhGbFhmSldwbVBsVHdoeXNabFhmSzNabVBreHdocXkzN05XVlkzTGlBY0xZQUE4KzY0TkJxMURRTFdzWTFFMVg5T21mS1JFY1pzMWM1OWs3VDR2RW4xZFZUVFZUTkZkTk5kTlVURlZOVWJ4TVR6aVhnZldiMEx2ZEdzNnJOd3FLcm1rWDYvaTZvNC91OVUvUXE5SGRMbHowNjlxSHNmWjNtTmV6L2E1SjYvL0FEK0dtZ09kNndBQUJiZEZkeTVUYnRVVlhMbGRVVTBVVXh2VlZNOG9pUFBJTzNvbW1aV3M2dmk2WGgwNzNzbTVGRVQ5bVBQVlBvaU41ZlRtbjRsakF3TWZBeGFlell4N1ZOcTNIb2lObW5kVlhReWVqbUZWcUdvMFIvaTJUUnRWVHovZDdmMkk5TStmd2J1N01OT3pHNWVBNTl6R3ZGNVlwam4vQUJyNnordjRBRzVRZ0FBQUQ5VVYxMGZJcW1uMVMvSWIwT3pSbVhZK1ZGTlVlRXVlak10VmZLM29uMDhXUEd5dWE0SW1zTXZSWFJYRzlOVVQ2cFZpOFgvdWJmOEFVeWpxeFpPM0cydTBhQUcxQUFBQUFpb0lrQUVBQUFBQUFBQUFBQUFDd2l3SmdBRWdBQUFBQUFBQUpWVkZOTTFWVHRFUnZJT0RQdTlpMzVPbWZoVmMvVXg3OTNhNXVYSnJueis1K0Zta3YyN2JiWWpVQURCSUFBL0dSWnRaR1BjeDhpMVJlczNhWnB1VzY2ZDZhb256VEQ5aUV4T3VyeWZwZjFUMWR1dks2TDNhZXpQR2NLL1h0dDZLSzUvS2ZGNXRxdWs2cnBOMmJXcDZkbFlsY2Y1bHVZajJUeWw5UWxjUlhSTkZkTVYwVHpwcWplSjlrdE5zRVQzZEhvZUU5bytJd3gyY3NkdVBwUDEvNCtUNHVXNTVWMHo3VnBxcHFxN05FOXFydXA0eStvTDJoNkhlcTdWM1JkT3JxNzV4cWYwYzJMcCtuWWt4T0xwK0hqekhLYmRpbW1mR0kzWWYyOC9xc1o5cWNldW1LZCtmL0h6OTBlNkRkSnRicXBxeDlQcnhzZWVlUmxSTnVpSTlFVHhuMlE5ZjZEOUJOSjZNYlpXODV1cFRHMDVOeW5hS1BSUlQ5SDE4MjJUTXp6bVpSdHBpclhxcE9PNTN4UEZ4MlBEWDlJKzhnRGFwd0FBQVNBQ0FBU0FsZGRGRWIxMVUweDZaUk14RWJraU45emx4dis1dC93QlRLTUhpWnRtck9zV3FPMVZOVmNSdnR3Wnh2NExOankxbnNUdlVzY3RMVW1PMUdnQjJ0UUFBQUFpb0lrQUVBQUFBQUFBQUFBQUFDd2l3SmdBRWdBQUFBQUFBRHA2aGQ0eGFwbmx4cWRtL2NpMWFtdWZaSGZMRnpNMVRNenhtZU11ZlBmVWRtR2RZK0tBT1JtQUFBQUFBQUFBQUFDUUFRQUFBL055N2J0eHZjcnBwOWNzYldpc2JtZFFtSW1aMUQ5RHAzZFJ0VThMZEZWYzk4OElkUzdtNUZmS3FLSTdxVmRtNXR3MkxwRTlxZmwrZTUxVTRQTGJ2alRLM0s2TGNiM0s2YWZYTHEzZFFzMDhMZE5WYytFTVpNek03ek16UGZLS25OenZOYnBqaUk1Wi9IbzdLY0JTUEZPM2F1NTJSWHdwbUtJL2xkYXFacW5lcVptZStaUVZXWFBselR2SmFaZGRNZGFlR05PMXBQenJpL2V3MjVxT2svT3VMOTdEYm5yZlpuM0YvUDdRcWVaKzhyNUFEMGl0QUFBQUVWQkVnQWdBQUFBQUFBQUFBQUFXRVdCTUFBa0FBQUFBQUJ3NWQzeVZyaFB3cXVFSXRNVmpja2RYVnpidmxMblppZmcwKytYWEJYV3ROcDNMZEVhQUVBQUFBQUFBQUFBQURqdTM3TnI1ZHltSjd0K0xHMTYwamRwMURLS3phZFE1QjBidW8weHd0VzVxOU5YQjFMdVhrWE9FM0pwanVwNEt6TnpqaHNmU3M5cWZsK1hWVGdzdHUvb3kxMjlhdFI0WmNwcDlycTNkUnR4d3RVVFY2WjRReGdxYzNPODkrbElpdnJQOEFQOU95bkFZNitMcTdGM015TG5EdDltTzZuZzRKNHp2UEdVRlhrelpNczd2YVpkZGFWcEdxeG9BYW1RQUFBRHRhVDg2NHYzc051YWpwUHpyaS9ldzI1N1AyWjl4ZnorMEtibWZ2SytRQTlJclFBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBQUFKNFJ2UEpqTW03NVc3TlhtNVI2bmF6N3ZabzhsVFBHcm42blFjbWUrNTdNTmxZK0lBNTJRQWhJQWxBQUFLNGJ1VFl0L0t1UnYzUnhsaGZKVEhHN3pxUG15cldiVHFJMjVWWTY3cVhtdFcvYlYranEzY20vZCtYY25idWpoQ3J6YzU0Zkgwci9sTHJwd09TM2YwWmE3a1diWHk3a2I5MGNaZFM3cU1jclZ2ZjAxTWNLbk56cmlMOUthckRzcHdPT3ZmMWM5M0t2M1BsWEppTzZuaERnQldaTWw4azd2TzUrYnFyV3RZMVdOQURXeUFBQUFBQUFTN1hSYXR6Y3UxMFc2STUxVjFSVEVlMlFVYTNxM1RqbzVwL2Fwak5uTXV4OURHcDdmSCtyazFMVmVzM1VMdTlHbWFmWnhhZk5jdlQ1U3Z3NFJEcXg0Rm15ZDFmcjBkbUxnTStYdXJyejZQVzlKaVoxVEZuYmhGMkczUG1yb05yZXI2cDFsZEhKMURVY2kvVC9pTnY0RTFiVVJ6K2pIQjlLdlk0aTRhZUh3Mmlaenp1ZnNwT2U4TGJoc3RLMm5lNCs4Z0M4VVlBQUFBaW9Ja0FFQUFBQUFBQUFBQUFBQ3dpd0pnQUVnQUFBQ1YxUlRSTlU0b2pkWDR2L3dMbjlNb21kUVF4bHl1cTVYTmRYT1g1Qlc0MWJnQUFKNFJ2UENIQmR6TWUzd201MnA3cWVMWGt5MHhSdTh4SG16clMxNTFXTnVjWTY0cU5jOExWdUtmVFZ4ZFM3ZXUzZmwzS3A5Ry9CVlp1ZFlLZEtSTnZTUDUvcDEwNEhKYnhkR1d1NVZpM3dxdVJNOTFQRjFidW96UEMxYmlQVFV4NHFzM09PSXlkSy80eDh2eTdLY0ZqcjM5WExkeUwxMzVkeXFZN280UTRnVmw3MnZPN1R1WFZXc1ZqVVFBTUVnQUFBQUFBc2NlVHE2anFPbjZkYm01cUdkajR0TWY1bGNSUGh6bE1STXpxRXhFMm5VT3lOS3RYRI0wYkczcHdMR1JuMXh5cTI0blI0enhud2FucXZXRDBoemQ2Y2V1enA5dWVVV0tkNnZ4VHhkbVBsK2ZKOExpYnV4Y3Q0akpITmVmODI5ZHk4akh4TE0zc3ZJdFk5dU9QYXV3eFRIdmF0cXZXRjBld3Q2TWV1OXFGeVBOWXAycC9GTHlMS3Y1R1hkbTlsNUYzSXVUeDdWMnVhcDk3aldHUGxWSXVjN1dXTG1HT091U2Qralp0VzZ5TmF5ZDZjWXpqNEZFL1MyOHBYNHp3andkcXFPb1orb3pQS2FobTVHVlYvcVZ6TUVISTFY4bTQ4R1BGNEs2V09MaDhXTHdWMFJ3amFBbmh6ZG5UdE8xRFViUlc5UHdZaktxL3dCT2laaHg1UTJ6TVJHNWJAZ01qdGN4MVkvL0FHNTBJ' +
-'L3hDMy9kOVN2Qk9yam9Kck9KMHQ0ZlZOUXJ4OGFuR3lxYnZrdTEyNjZ0dCtIRGhEM3RaOHJ5MHlVdDJKM3FQczRGN1Q1YVplSXAySjNxUHZJQXMzbWdBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBSDR2L3dBQzUvVEw5dUxNcWlqRXZWekc0VTBUTEk0eEZabVUxamM2WXduYUkzbVlpTytXTXU2amRxNFc0YWFJN3VjdXJjdVhMazczeUs2cXZYTHl1Ym5lR25USEUyOUkvbitscFRnTHo0cDB5dDNOeDdmMCszUGRUeGRXN3FOeWVGdWltbU8rZU11aUtGTnpmMCt3aVNKN01mTDh1eW5CWXE5OGJjbHk3ZHV6OFpjcXE5Y3VNRmJhMXJUdTA3bDB4RVJHb0FHS1FBQUFBQUFYYWR0OXVFTU5xM1NqUU5MM2pMMU96NVNQcXJVK1VyOElaVnBhODZyRzJkS1d2T3F4dG1GaUptZG9qZVhuT3E5WjFNYjBhVHBjMWQxekpxMmo0TWZxMUhWK2xuU0hWSXFweU5TdVc3ZFhPM1krTHA5M0gzdTdGeTNOZnhkSGZpNVZudjR1ajJQVnRiMGpTcVpuUDFISHMxZlk3ZTlYNFk0dFMxWHJOd0xlOUdsNmZmeWF2TmN2VDVPbnc0eTh1MjR6UE9aNXpQT1JZWStWNHErS2QraXl4Y3B3MThjNzlHeWF0MDQ2U2FoMnFQMzJNUzFQME1hbnNlTlhQM3RjdTFWWGJrM0x0ZFZ5dWVkVmRVMVRQdGxCMzB4VXh4cXNhV09QRlRIR3FSb0VtWWlONW5aa05LMFhWOVZxaU5QMDdJdnhQMDRwMm9qMTFUd1pXdEZZM002Wld0RlkzYWRRNkJQRG0zM1NlclBPdTdWYXBuMnNXbnowV1k4cFg0OHZ6YmZwUFFubzVwMDAxVTRQNzFjajZ6SnE3Yzcrcmw3bkRsNWpocDNUdnljR1htZURIMGlkejhuaitsNlhxV3FWOWpUOERJeWY1cUtQZ3g3ZVRidEo2dE5VdmRtdlU0eXhoMFR6b3QvR1YvcEQxU21JcG9vaWltbW1pT1ZOTWJSSHNnVitYbW1XM2dqWHFyTXZOc3R2Qkd2VnJPazlCZWptbjltdXZFcXpic2ZUeWF1MUcvb3BqZzJXMVJSWnR4YnMwVVc3Y2NxYUtZcGlQWkNqZ3ZrdmtuZHAycnNtVytTZDNuYnRhVDg2NHYzc051YWpwUHpyaS9ldzI1Ni8yWjl4ZnorMEtMbWZ2SytRQTlJclFBQUFCRlFSSUFJQUFBQUFBQUFBQUFBRmhGZ1RBQUpBQUFBSEJxWHpkay9kVmZrNTNCcVh6ZGsvZFZmazA0VDdtL2xQN004ZmpqemFjQStYUFVBQUFBQUFBL0dSZHRZMXFidVJkdDJiY2M0cmxVVXg0eTFuVmVuM1J6QjNvczVGek91eDlISHAzcC9GTzBObVBGZkpPcVJ0dHg0Y21XZFVqYmFTcVlwb211cXFLYVk1MVZUdEVlMTVUcXZXVnExL2VqVHNUSHdxUE5YWDhaWCtrZURVOVQxVFV0VHI0V29aK1JrL3kxMXoyZkRrNzhmSzh0dkhPdlZZNHVVWmJlT2RlcjJIVnVtblJ6VFpxcHJ6NHlMa2ZWNDBlVW5mMTh2ZTFMVmVzM0t1YjA2VnB0dXhIbXVaRlhicThJNFBQNDRjSUZoajViaHAzOVZqaTVYZ3AzeHZ6WlBWZWtHdDZyTS92MnA1RnlpZnE2YXV4UkgvR09ERnhFUnlqWlIyMXJXc2FyR25mV2xhUnFzYUJKbUk1enpaZlNlald2YXJ0T0ZwbDZxM1AxdHlPeFJIdGt0ZXRJM2FkRjcxcEc3VHFHSlNaaUkzbVlpSG8yazlXTmRXMWVyYW5GRWVlM2pVN3orS2YwYmZwSFJUby9wY3hWamFiYnJ1Unl1My9qSy9mdzl6aHk0eXcwOFBWWDVlYVlLZUhxOGQwalFOYTFXWS9jTk55TGxFL1dUVDJhUEdlRGI5SjZzY3F2YXZWdFN0Mlk0OXJIanQxZmluZzlPMzRSSG1qbEhjaXZ5OHp5MjhQUlc1ZWJacitEb3dPa2REdWp1bVRGZHJUcUw5MlByY2lmS1Q0VHdqd1o2T0ZNVXhFUlRIS0k0UkFPQzk3WG5kcDJycjVMNUozZWRnREJnQUFBQTdXay9PdUw5N0RibW82VDg2NHYzc051ZXo5bWZjWDgvdENtNW43eXZrQVBTSzBBQUFBUlVFU0FDQUFBQUFBQUFBQUFBQllSWUV3QUNRQUFBQndhbDgzWlAzVlg1T2R3YWw0M1pQM1ZYNU5QRSs1djVUK3pQSDQ0ODJuQXNSTXp0RWJ5K1hQVUlPbHFtcjZYcGRFMWFocUdQamVpdXY0VSt5T0xVOVc2eTlMczcwNmJoMzh5cnpWMS9GMGZxM1krSHk1ZkJYYmZpNGJMbDhGZHQ1Y0dkbVllQmE0cm5aZGpHbzc3dGNVdklOVjZlZEk0L2Vtakpvd2JjL1J4cWRwL0ZQRnJOKzVjdjNadTM3dHk5Y25uWGNxbXFmR1ZoajVWZWZIT2xsaTVQZWV1UzJ2SjYzcXZXTm9XSnZSaDBaR29YSSt4VDJLUHhUK2pVdFY2eE5meTk2Y09MR24wVC9sMDl1djhVLzJocDRzTWZBWU1mdzM1ckhGeTdoOGZ3MzUvelRtemN2THpyazNjM0t2NU5jL1N1MXpWK2JoQjF4RVJHb2QwUkVScUFJNDFSVEhHcWVVUnpsbnRKNklkSXRUaUtyT25WMmJVL1c1RStUcDkvR2ZCamZKV2tidE9tRjhsTWNidk9tQlNaamVJODg0bzczcHVrOVdPUFR0WHEycFhMcytlM2pSMlkvRlBIM052MGpvL291bFJFNE9tMkxkY2ZXVlU5cXZ4bHdaZVo0cStIcXI0dk5jTk9sZXJ4N1NPaXZTRFZJaXJGMDI0VGJubGR2ZkYwZU10djBucXhwamF2VnRUbXFmUGF4cWRvL0ZQOW9lalRNek04ek15aXZ5OHl6WDhQUlc1ZWE1NzlLOUdJMGpvem9PbGJUaDZaWmk1SDF0eVBLVitNc3hNelBPVUhEYTlyenUwN1YxNzJ2TzdUc0FZc1FBQUFBQUFBQUFIYTBuNTF4ZnZZYmMxSFNmblhGKzlodHoyZnN6N2kvbjlvVTNNL2VWOGdCNlJXZ0FBQUNLZ2lRQVFBQUFBQUFBQUFBQUFMQ0xBbUFBU0FBQUFPbHIyVFp3OUN6OHZJcW1sell4NjdseVlqZmFtSTNuZzdyQ2RQLzhBd1BYL0FQYnIzL3JMWGxqdFk3UlA2UzI0STdXV3NUK3NmdThnMVhyT3g2ZDZOSzB5NWRuelhjaXJzeCtHT1B2YWxxM1RIcEhxVVZVWE5ScXg0VS9WNDBlVGp4ampQaXdFRHltTGc0T1B1cjllcjZwaTRIQmk0TmZyMUtwbXF1YTZwbXFxZWRVenZNKzBCMU9vRnRVMTNia1dyVkZWeTVQS21pSm1aOWtOazBub04wajFEczF6aVU0ZHFmcDVOWFo0S2ViREpscGpqZDUwMTVNdE1jYnZPbXRGTVRWWEZGTVRWVlBLbW1ONW4yUFZOSjZ0Tk1zN1Y0bm0zNHlyN0Z2NHVqOVpiZHBlazZacGRIWjAvQXg0YithaWo0VSsyZUt2eTgweFY0RWI1RmRsNXRpcjBwRy9UK2ZSNDlwSFF2cEhxVVUxVTRFNHRxZnJNbWV4RzNxNXo0TnYwbnF5d3JXMWVxYWhkeWF2UGJzUjVPang1L2szK2VNN3lpdnk0eHpYN3AxNUszTHpUUGs2Uk92Smo5SzBUU05LcGlOUDA3SHNUOXVLZDY1LzVUeFpHWm1lYzdvT0sxcHRPNW5iZ3RhYlR1MDdBR0xFQUFBQUFBQUFBQUJ5Mk1lL2ZuYXpacnVlcU9IaXlyVzE1N05ZM0tKbUlqY3VJWmZHMExJcjQzN2xGcU82UGhTeVdObytEWjJtYUp2VmQ5Yy8yVzNEOGo0dk4xbU96SHovQUIzdVRKeDJHbmRPL0pyVm16ZXYxZG16YXJ1VC9MRzdJNDJoNVZ6YWIxZEZtTzduTFk2WWltbnMweEZOUGRFYkM0NGYyY3dVNjViVGIwajgrcmh5Y3l5VDRJMDZHSHBPSmpYS2JudzdseW1kNHFxbmxQcWQ0RjdnNGZGZ3IyY1ZZaUhEZkpiSk83VHNBYm1BQUFBQWlvSWtBRUFBQUFBQUFBQUFBQUN3aXdKZ0FFZ0FBQURDZFA0QS93QUQxLzhBMjY5LzZ5emJHOUs0U3JQNkxhcmcwMXhicXlNUzVhaXVZM2luZU50MnZMTVJTWm45RzdoNWlNMUpuOVkvZDhsdy9WbTNkdjNZdFdMVnk5Y25sUmJwbXFmQ0hyT2s1WEdoNHZacno3dC9VTGtlYXFleGI0STR6NHRzMC9DdzlQdGVTd2NTeGpVZDFxaUtmZnplS3k0MXh4NEkzNlBvK1htK092U2tiOUhrT2s1QXVrV2Z0VmRzVzhDM1Awc2lyYXI0TWNmeWJkcFBWdHBHTjJhOVF5YitkWDU2WStMbzkzR2ZGdTRyOHZNTTkvanJ5VnVYbVdmSjNUcVBrNnVuYWJwK20yNHQ2Zmc0K0xUL0FLZEVSTSt1ZWJ0enhRY1V6TXp1WEJNemFkeUFJUUFBQUFBQUFBQUFBNThiRHlzaitEWXJxanYyMmp4WjBwYkpQWnBHNStTTFdpc2JtWEFNMWphRGNuYWNpOVRSL0xSeG54WkxHNHZCc2JUVEN6aVVkMXFpS2ZmenplS3k0MXh4NEkzNlBvK1htK092U2tiOUhrT2s1QXVrV2Z0VmRzVzhDM1Awc2lyYXI0TWNmeWJkcFBWdHBHTjJhOVF5YitkWDU2WStMbzkzR2ZGdTRyOHZNTTkvanJ5VnVYbVdmSjNUcVBrNnVuYWJwK20yNHQ2Zmc0K0xUL0FLZEVSTSt1ZWJ0enhRY1V6TXp1WEJNJ +
-'emFkeUFJUUFBQUFBQUFBQUFBNThiRHlzaitEWXJxanYyMmp4WjBwYkpQWnBHNStTTFdpc2JtWEFNMWphRGNuYWNpOVRSL0xSeG54WkxHMHZCc2JUVEN6aVVkMXFpS2ZmenplS3k0MXh4NEkzNlBvK1htK092U2tiOUhrT2s1QXVrV2Z0VmRzVzhDM1Awc2lyYXI0TWNmeWJkcFBWdHBHTjJhOVF5YitkWDU2WStMbzkzR2ZGdTRyOHZNTTkvanJ5VnVYbVdmSjNUcVBrNnVuYWJwK20yNHQ2Zmc0K0xUL0FLZEVSTSt1ZWJ0enhRY1V6TXp1WEJNemFkeUFJUUFBQUFBQUFBQUFBNThiRHlzaitEWXJxanYyMmp4WjBwYkpQWnBHNStTTFdpc2JtWEFNMWphRGNuYWNpOVRSL0xSeG54WkxHMHZCc2JUVFppdXI3VmZHVnh3L0llTHk5YlIyWStmNC9PbkhrNC9GVHU2dFp4OGJJeUoyczJhNi9URWNQRmtzYlFiMVcwNUY2bTNIZFQ0S2YwYkJ5amFPRVI1aGVjUDdPOFBqNjVKbTAvU1BUcjZ1SEp6SEpid3hwMGNiU2NHeHRQa3ZLVlI1N2s3KzUzb2lLWTJwaUlqdWlOZ1hXSGg0V0NOWTZ4SGs0cjVMWG5kcDJBTnpBQUFBQUFBQUFBQVJVRVNBQ0FBQUFBQUFBQUFBQUJZUllFd0FDUUFBQUJ3YWw0M1pQM1ZYNU9kd2FsNDNaUDNWWDVOUEUrNXY1VCt6UEg0NDgybkFQbHoxQUFBQUFBQUFBQUFEdFkybjVtUnROdXhWMmZ0VmZCajN0bVBGZkxiczBpWm41TWJXcldOMm5UcWpPWTJnY3B5Yi93RHh0eC9lV1R4dFB3OGZhYlZpbnRmYXE0eXVlSDluK0t5OWI0ckh6Ny9wSC9ISGs1aGlyNGVyV2NiQnk0aitGWXJtUHRUd2p4bGtzYlFLcDJuSnZ4VC9BQzBSdjcyZVJlY1A3UGNMajY1TjJuNlI5SS9MaHljeHkyOFBSMU1iVGNMSDQwV0thcXZ0Vi9DbDIvTnNDNXhZY2VLT3pqckVSOG5GYTlyenUwN0FHMWlBQUFBQUFBQUFBQUFBQUFBSXFDSkFCQUFBQUFBQUFBQUFBQXNJc0NZQUJJQUFBQTROUytic243cXI0bk80TlMrYnNuN3FyOG1uaWZjMzhwL1puajhjZWJUZ0h5NTZnQUFBQURuTzBjWjdvZDNHMHZPdjdUVFptaW43VmZCdHhZTW1hZXpqck16OG1ONzFwRzdUcDBqejdlZG40YlFiVWJUa1hxcTUrelJ3anhaUEd4TVhIL2cyS0taNzl0NThWMXcvczd4T1Rya21LeDlaOVB5NHNuTWNWZkQxYXhqYWJtNUcwMFdLcWFaK2xYOEdHVHg1QXBqYWNtL05YOHRFYmU5bTBYbkQ0ZzRURjF2dTAvUHUra2ZmYmh5Y3d5Mzd1anI0MkZpWS93RENzVVJQMnBqZWZHWFpRWE9QSFRIWHMwaUlqNU9PMXB0TzVuWUF6WWdBQUFBQUFBQUFBQUFBQUFBQUFBQUFDS2dpUUFRQUFBQUFBQUFBQUFBTENMQW1BQVNBQUFBT0RVdm03Sis2cS9KenVEVXZtN0orNnEvSnA0bjNOL0tmMlo0L0hIbTA0V21LcXF1elJUTlZVK2FJNGwzNGJSNDY0dE0wUmFwNzY1L3MrYVllSHk1NTFqck0rVDB0OGxNY2J0T21QV0ltcWRxWW1aN29qZHNPTm9XTlJ0Tis1WGRudWo0TU1sWXg3RmlOck5taTM2b1hmRCt6bkVYNjVaaXNmV2Z4NnVMSnpISFh3eHRyT05wT2RmMm55WGtxWjg1eWR2Y3llTm9ObW5hY2k1VmNudXArREg2c3dpODRma1BDWWV0bzdVL1A0ZHpoeWNmbXYzVHJ5Y1dQalkrUEcxbXpSUjZZamo0dVpCY1VwV2tkbXNhaHh6TTJuY2dESkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBaW9Ja0FFQUFBQUFBQUFBQUFBQ3dpd0pnQUVnQUFBQ1hLS2JsdXEzWEc1TlViVEhmQ2lKaUpqVWtkSDRzMmJWaW5zMmJWRnVQNVkyZnNFVnJGWTFFYWhNek16dVFCa2dBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUlVFU0FDQUFBQUFBQUFBQUFBQ1lSWUV3QUNRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUJGUVJJQUlBQUFBQUFBQUFBQUFGaEFTb2dHMUVBMm9nRzFFQTJvZ0cxRUEyb2dHMUVBMm9nRzFFQTJvZ0cxRUEyb2dHMUVBMm9nRzFFQTJvZ0cxRUEyb2dHMUVBMm9nRzFFQTJvZ0cxUUFBQkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFELzlrPSIgeD0iMjYiIHk9IjI2IiB3aWR0aD0iNDYwIiBoZWlnaHQ9IjQ2MCIvPgogIDxsaW5lIHgxPSI5MCIgeTE9IjkwIiB4Mj0iNDIyIiB5Mj0iNDIyIiBzdHJva2U9IiNlMDEwMWUiIHN0cm9rZS13aWR0aD0iMzgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSI0MjIiIHkxPSI5MCIgeDI9IjkwIiB5Mj0iNDIyIiBzdHJva2U9IiNlMDEwMWUiIHN0cm9rZS13aWR0aD0iMzgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="KICK THE HABIT">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<meta name="apple-mobile-web-app-title" content="掃除リスト">
+<title>毎日の掃除チェックリスト</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #ffffff;
+  --bg: #f5f3ee;
   --surface: #ffffff;
-  --surface2: #f5f5f5;
-  --border: #e0e0e0;
-  --border2: #c0c0c0;
-  --text: #0a0a0a;
-  --text2: #555555;
-  --muted: #999999;
-  --ok: #1a5fa0;
-  --ok-bg: #1a5fa0;
-  --ok-light: #e8f2fb;
-  --fail: #c0392b;
-  --fail-bg: #c0392b;
-  --fail-light: #fbeaea;
+  --text: #1a1a18;
+  --muted: #888780;
+  --border: rgba(0,0,0,0.1);
+  --work: #2563eb;
+  --work-bg: #eff6ff;
+  --off: #16a34a;
+  --off-bg: #f0fdf4;
+  --accent: #1a1a18;
+  --radius: 14px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body {
+  font-family: 'Noto Sans JP', sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 300;
   min-height: 100vh;
-}
-
-.container {
-  max-width: 640px;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 3rem 2rem 6rem;
 }
-
-/* ── HEADER ── */
 header {
-  margin-bottom: 3rem;
-  animation: fadeUp 0.5s ease both;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.25rem 0.875rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-
-.logo {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: clamp(3.8rem, 16vw, 7rem);
-  letter-spacing: 0.04em;
-  line-height: 0.92;
-  color: var(--text);
-  text-transform: uppercase;
-}
-
-.logo-sub {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.logo-sub::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: var(--muted);
-}
-
-.today-date {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 1.5rem;
-  display: block;
-}
-
-.legend {
-  display: flex;
-  gap: 18px;
-  margin-top: 8px;
-}
-.legend-item {
-  display: flex; align-items: center; gap: 6px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.leg-dot { width: 10px; height: 10px; border-radius: 1px; }
-.leg-dot.ok   { background: var(--ok-bg); }
-.leg-dot.fail { background: var(--fail-bg); }
-.leg-dot.none { background: transparent; border: 1px solid var(--border2); }
-
-/* ── RULE ── */
-.rule {
-  width: 100%;
-  height: 1px;
-  background: var(--text);
-  margin: 2rem 0;
-}
-
-/* ── ADD SECTION ── */
-.add-section {
-  display: flex;
-  gap: 0;
-  margin-bottom: 2.5rem;
-  border: 1px solid var(--text);
-  animation: fadeUp 0.5s 0.06s ease both;
-}
-
-.add-input {
-  flex: 1;
-  min-width: 0;
-  background: transparent;
-  border: none;
-  padding: 0 12px;
-  height: 48px;
-  color: var(--text);
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  outline: none;
-}
-.add-input::placeholder {
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.add-btn {
-  height: 48px;
-  padding: 0 20px;
-  background: var(--text);
-  border: none;
-  color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
+header h1 {
+  font-size: 17px;
   font-weight: 700;
+  letter-spacing: -0.02em;
+}
+header .sub {
   font-size: 12px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.15s;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.add-btn:hover { background: #333; }
-
-/* ── CARDS ── */
-.habits-list { display: flex; flex-direction: column; gap: 0; }
-
-.habit-card {
-  border-top: 1px solid var(--border);
-  padding: 1.4rem 0;
-  animation: fadeUp 0.4s ease both;
-  position: relative;
-}
-.habit-card:last-child { border-bottom: 1px solid var(--border); }
-
-.card-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: 0.2em;
   color: var(--muted);
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.card-main {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-/* Action buttons — horizontal */
-.action-btns {
-  display: flex;
-  gap: 6px;
-  flex-shrink: 0;
   margin-top: 2px;
 }
-
-.act-btn {
-  width: 36px; height: 36px;
-  border: 1px solid var(--border2);
-  background: transparent;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  transition: all 0.15s;
-  flex-shrink: 0;
-  border-radius: 0;
-}
-
-.act-btn.ok-btn:hover  { border-color: var(--ok-bg); color: var(--ok-bg); background: var(--ok-light); }
-.act-btn.ok-btn.active { border-color: var(--ok-bg); background: var(--ok-bg); color: #fff; }
-
-.act-btn.fail-btn:hover  { border-color: var(--fail-bg); color: var(--fail-bg); background: var(--fail-light); }
-.act-btn.fail-btn.active { border-color: var(--fail-bg); background: var(--fail-bg); color: #fff; }
-
-.habit-info { flex: 1; min-width: 0; }
-
-.habit-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text);
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  line-height: 1;
-  margin-bottom: 10px;
-}
-
-/* Stats */
-.stats-row {
+.tabs {
   display: flex;
-  gap: 20px;
-  align-items: baseline;
-}
-
-.stat-block { line-height: 1; }
-
-.stat-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 2rem;
-  color: var(--ok-bg);
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-.stat-num.grey { color: var(--fail-bg); }
-
-.stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 3px;
-}
-
-.stat-sep {
-  width: 1px; height: 28px;
-  background: var(--border);
-  align-self: center;
-}
-
-.streak-emoji { font-size: 1rem; margin-left: 2px; }
-
-/* Right side — rate + delete */
-.card-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  gap: 0;
+  background: var(--bg);
+  padding: 0.75rem 1rem;
   gap: 8px;
-  flex-shrink: 0;
 }
-
-.rate-badge {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.delete-btn {
-  background: none;
-  border: 1px solid var(--border);
-  padding: 4px 8px;
-  color: var(--muted);
+.tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Noto Sans JP', sans-serif;
   cursor: pointer;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: all 0.15s;
-  border-radius: 0;
-}
-.delete-btn:hover { border-color: var(--text); color: var(--text); }
-
-/* ── CALENDAR ── */
-.cal-wrap { margin-top: 12px; }
-
-.cal-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  display: flex;
-  justify-content: space-between;
-}
-.cal-rate {
-  font-weight: 700;
-  color: var(--ok-bg);
-}
-
-.cal-grid {
-  display: grid;
-  grid-template-columns: repeat(28, 1fr);
-  gap: 3px;
-}
-
-.dot {
-  aspect-ratio: 1;
-  border-radius: 0;
-  background: var(--surface2);
-  transition: transform 0.1s;
-}
-.dot:hover { transform: scale(1.5); z-index: 5; }
-.dot.ok        { background: var(--ok-bg); opacity: 0.75; }
-.dot.ok-today  { background: var(--ok-bg); opacity: 1; }
-.dot.fail      { background: var(--fail-bg); opacity: 0.6; }
-.dot.fail-today{ background: var(--fail-bg); opacity: 1; }
-.dot.t-empty   { background: transparent; outline: 1px solid var(--text); outline-offset: 1px; }
-
-/* ── EMPTY ── */
-.empty-state {
-  padding: 4rem 0;
-  color: var(--muted);
-}
-.empty-big {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 5rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--surface2);
-  display: block;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.empty-text {
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  line-height: 1.8;
-}
-
-/* ── ANIM ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes pop {
-  0%  { transform: scale(1); }
-  40% { transform: scale(1.2); }
-  100%{ transform: scale(1); }
-}
-.pop { animation: pop 0.2s ease; }
-
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-thumb { background: var(--border2); }
-
-/* ── MODAL ── */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(255,255,255,0.85);
-  z-index: 100;
-  display: flex; align-items: center; justify-content: center;
-  animation: fadeIn 0.15s ease;
-}
-.modal {
-  background: var(--surface);
-  border: 1px solid var(--text);
-  padding: 2rem 1.5rem;
-  max-width: 300px; width: 90%;
   text-align: center;
+  background: var(--surface);
+  color: var(--muted);
+  transition: all 0.15s;
 }
-.modal p { font-size: 13px; color: var(--text2); margin-bottom: 1.5rem; line-height: 1.8; }
-.modal strong { color: var(--text); font-weight: 700; }
-.modal-btns { display: flex; gap: 8px; }
-.modal-btns button {
-  flex: 1; height: 40px;
-  border: 1px solid var(--border2);
-  background: transparent; color: var(--text2);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600; font-size: 11px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  cursor: pointer; transition: all 0.15s;
+.tab.active-work { background: var(--work-bg); border-color: var(--work); color: var(--work); }
+.tab.active-off  { background: var(--off-bg);  border-color: var(--off);  color: var(--off); }
+.page { display: none; }
+.page.active { display: block; }
+
+/* Calendar */
+.cal-section { padding: 0 1rem 1rem; }
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 0 0.75rem;
 }
-.modal-btns .confirm-del { border-color: var(--text); color: var(--text); }
-.modal-btns .confirm-del:hover { background: var(--text); color: #fff; }
-.modal-btns button:hover { background: var(--surface2); }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.cal-header span { font-size: 15px; font-weight: 700; }
+.cal-header button {
+  background: none; border: none; font-size: 20px;
+  color: var(--muted); cursor: pointer; padding: 4px 8px;
+  font-family: monospace;
+}
+.cal-legend {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.leg {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--muted); cursor: pointer;
+  padding: 5px 10px; border-radius: 20px;
+  background: var(--surface); border: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.leg.sel-work { background: var(--work-bg); border-color: var(--work); color: var(--work); font-weight: 500; }
+.leg.sel-off  { background: var(--off-bg);  border-color: var(--off);  color: var(--off);  font-weight: 500; }
+.leg.sel-none { background: #fef9ef; border-color: #d97706; color: #d97706; font-weight: 500; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-work { background: var(--work); }
+.dot-off  { background: var(--off); }
+.dot-none { background: #d97706; }
+.day-names {
+  display: grid; grid-template-columns: repeat(7,1fr);
+  gap: 4px; margin-bottom: 4px;
+}
+.day-names span {
+  text-align: center; font-size: 11px; color: var(--muted); padding: 4px 0;
+}
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7,1fr); gap: 4px;
+}
+.dc {
+  min-height: 56px; border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-start; padding: 4px 2px;
+  font-size: 13px; font-weight: 500;
+  cursor: pointer; border: 1.5px solid transparent;
+  background: var(--surface); color: var(--text);
+  transition: all 0.12s; position: relative; overflow: hidden;
+}
+.dc-num { font-size: 13px; font-weight: 500; line-height: 1.4; flex-shrink: 0; }
+.dc-tasks { width: 100%; margin-top: 2px; }
+.dc-task { font-size: 8px; line-height: 1.3; white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; text-align: left; padding: 0 2px; opacity: 0.85; }
+.dc-task.done-task { opacity: 0.4; text-decoration: line-through; }
+.dc:active { transform: scale(0.93); }
+.dc.today { border-color: var(--accent); }
+.dc.work { background: var(--work-bg); color: var(--work); border-color: var(--work); }
+.dc.off  { background: var(--off-bg);  color: var(--off);  border-color: var(--off); }
+.dc.empty { background: none; border: none; cursor: default; }
+
+/* Tasks page */
+.tasks-section { padding: 0 1rem; }
+.today-banner {
+  margin: 0.875rem 0 1rem;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+}
+.today-banner.work { background: var(--work-bg); color: var(--work); }
+.today-banner.off  { background: var(--off-bg);  color: var(--off); }
+.today-banner.none { background: #fffbeb; color: #92400e; }
+.progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin: 0.5rem 0 1.25rem; }
+.progress-fill { height: 100%; border-radius: 2px; transition: width 0.3s; background: var(--work); }
+.progress-fill.off { background: var(--off); }
+.task-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.task-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.12s;
+  -webkit-user-select: none;
+}
+.task-row:last-child { border-bottom: none; }
+.task-row:active { background: var(--bg); }
+.chk {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0; display: flex; align-items: center;
+  justify-content: center; transition: all 0.15s;
+  font-size: 12px; color: white;
+}
+.task-row.done .chk { background: var(--off); border-color: var(--off); }
+.task-row.done-work .chk { background: var(--work); border-color: var(--work); }
+.task-lbl { font-size: 15px; flex: 1; transition: color 0.15s; }
+.task-row.done .task-lbl, .task-row.done-work .task-lbl {
+  color: var(--muted); text-decoration: line-through;
+}
+.del-btn {
+  background: none; border: none; color: var(--muted);
+  font-size: 18px; cursor: pointer; padding: 4px; line-height: 1;
+  opacity: 0.4; transition: opacity 0.15s;
+}
+.del-btn:hover { opacity: 1; }
+.add-area {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.add-area input {
+  flex: 1; border: none; outline: none;
+  font-size: 15px; font-family: 'Noto Sans JP', sans-serif;
+  padding: 14px 16px; background: none; color: var(--text);
+}
+.add-area input::placeholder { color: var(--muted); }
+.add-area button {
+  background: none; border: none; border-left: 1px solid var(--border);
+  padding: 14px 18px; font-size: 22px; cursor: pointer;
+  color: var(--muted); transition: color 0.15s;
+}
+.add-area button:active { color: var(--text); }
+.reset-row {
+  text-align: center; padding-bottom: 2rem;
+}
+.reset-btn {
+  background: none; border: 1px solid var(--border);
+  border-radius: 20px; padding: 8px 20px;
+  font-size: 12px; color: var(--muted); cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--muted); text-transform: uppercase;
+  padding: 0 0 0.5rem;
+}
+.task-lbl.editing {
+  border: none; outline: none;
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  width: 100%;
+  text-decoration: none !important;
+}
+.sub-chk {
+  width: 16px; height: 16px; border-radius: 3px;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0; display: flex; align-items: center;
+  justify-content: center; transition: all 0.15s;
+  font-size: 10px; color: white; cursor: pointer;
+  margin-left: 4px;
+}
+.sub-chk.on { background: #f59e0b; border-color: #f59e0b; }
+.edit-hint {
+  font-size: 11px; color: var(--muted);
+  text-align: right; padding: 0 16px 8px;
+}
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div class="logo">KICK THE<br>HABIT</div>
 
-    <span class="today-date" id="todayDate"></span>
-    <div class="legend">
-      <div class="legend-item"><div class="leg-dot ok"></div>断てた</div>
-      <div class="legend-item"><div class="leg-dot fail"></div>できなかった</div>
-      <div class="legend-item"><div class="leg-dot none"></div>未記録</div>
+<header>
+  <h1>🧹 毎日の掃除リスト</h1>
+  <div class="sub" id="hdate"></div>
+</header>
+
+<div class="tabs">
+  <button class="tab active-work" id="tab-cal" onclick="showPage('cal')">📅 カレンダー</button>
+  <button class="tab" id="tab-tasks" onclick="showPage('tasks')">✅ チェック</button>
+</div>
+
+<!-- Calendar page -->
+<div class="page active" id="page-cal">
+  <div class="cal-section">
+    <div class="cal-header">
+      <button onclick="changeMonth(-1)">‹</button>
+      <span id="cal-month-label"></span>
+      <button onclick="changeMonth(1)">›</button>
     </div>
-  </header>
-
-  <div class="rule"></div>
-
-  <div class="add-section">
-    <input class="add-input" id="newInput" type="text" placeholder="断ちたい習慣を入力（例：タバコ、深夜のスマホ）" maxlength="30">
-    <button class="add-btn" onclick="addHabit()">Add +</button>
+    <div class="cal-legend">
+      <div class="leg sel-work" id="leg-work" onclick="setMode('work')">
+        <div class="dot dot-work"></div>仕事の日
+      </div>
+      <div class="leg" id="leg-off" onclick="setMode('off')">
+        <div class="dot dot-off"></div>休みの日
+      </div>
+      <div class="leg" id="leg-none" onclick="setMode('none')">
+        <div class="dot dot-none"></div>クリア
+      </div>
+    </div>
+    <div class="day-names">
+      <span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
   </div>
+  <div class="cal-section" id="cal-task-preview" style="padding-top:0;"></div>
+</div>
 
-  <div class="habits-list" id="habitList"></div>
+<!-- Tasks page -->
+<div class="page" id="page-tasks">
+  <div class="tasks-section">
+    <div class="today-banner none" id="today-banner">―</div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+
+    <div class="section-label" id="task-section-label">タスク</div>
+    <div class="task-card" id="task-list"></div>
+
+    <div class="add-area">
+      <input type="text" id="add-input" placeholder="タスクを追加…" maxlength="40">
+      <button onclick="addTask()">＋</button>
+    </div>
+
+    <div class="reset-row">
+      <button class="reset-btn" onclick="resetToday()">本日のチェックをリセット</button>
+    </div>
+  </div>
 </div>
 
 <script>
-const KEY='breakit_v3';
-function getToday(){const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
-function pad(n){return String(n).padStart(2,'0');}
-function load(){try{return JSON.parse(localStorage.getItem(KEY))||{habits:[]};}catch(e){return{habits:[]};}}
-function save(d){localStorage.setItem(KEY,JSON.stringify(d));}
-function getLast28(){const days=[],t=new Date();for(let i=27;i>=0;i--){const d=new Date(t);d.setDate(t.getDate()-i);days.push(`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`);}return days;}
-function calcStreak(okSet){let s=0,d=new Date(getToday()+'T00:00:00');while(true){const k=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;if(okSet.has(k)){s++;d.setDate(d.getDate()-1);}else break;}return s;}
-function icon(n){return n>=30?'👑':n>=14?'🔥':n>=7?'⚡':n>=3?'✨':'';}
+const MONTHS = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+const DAYS = ['日','月','火','水','木','金','土'];
+const now = new Date();
+const todayY = now.getFullYear(), todayM = now.getMonth(), todayD = now.getDate();
 
-function render(){
-  const data=load(),today=getToday(),days=getLast28();
-  const d=new Date(),DOW=['SUN','MON','TUE','WED','THU','FRI','SAT'];
-  document.getElementById('todayDate').textContent=
-    `${d.getFullYear()} . ${pad(d.getMonth()+1)} . ${pad(d.getDate())}  /  ${DOW[d.getDay()]}`;
+let calYear = todayY, calMonth = todayM;
+let mode = 'work';
+let schedule = JSON.parse(localStorage.getItem('cs2-sched') || '{}');
+let workTasks = JSON.parse(localStorage.getItem('cs2-work') || '["洗面台を拭く"]');
+let offTasks  = JSON.parse(localStorage.getItem('cs2-off')  || '["お風呂を洗う","キッチンのコンロを磨く","リビングを掃除機がけ","窓を拭く","ベッドシーツを整える"]');
+let checks = JSON.parse(localStorage.getItem('cs2-chk-' + todayD) || '[]');
+let subchecks = JSON.parse(localStorage.getItem('cs2-sub-' + todayD) || '[]');
 
-  const list=document.getElementById('habitList');
-  if(!data.habits.length){
-    list.innerHTML=`<div class="empty-state"><span class="empty-big">No<br>Habits</span><div class="empty-text">まだ習慣が登録されていません。<br>上の入力欄から追加しましょう。</div></div>`;
+function save() {
+  localStorage.setItem('cs2-sched', JSON.stringify(schedule));
+  localStorage.setItem('cs2-work', JSON.stringify(workTasks));
+  localStorage.setItem('cs2-off', JSON.stringify(offTasks));
+  localStorage.setItem('cs2-chk-' + todayD, JSON.stringify(checks));
+  localStorage.setItem('cs2-sub-' + todayD, JSON.stringify(subchecks));
+}
+
+function showPage(p) {
+  document.getElementById('page-cal').classList.toggle('active', p === 'cal');
+  document.getElementById('page-tasks').classList.toggle('active', p === 'tasks');
+  document.getElementById('tab-cal').className = 'tab' + (p === 'cal' ? ' active-work' : '');
+  document.getElementById('tab-tasks').className = 'tab' + (p === 'tasks' ? ' active-work' : '');
+  if (p === 'tasks') renderTasks();
+  if (p === 'cal') renderCalPreview();
+}
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('leg-work').className = 'leg' + (m === 'work' ? ' sel-work' : '');
+  document.getElementById('leg-off').className  = 'leg' + (m === 'off'  ? ' sel-off'  : '');
+  document.getElementById('leg-none').className = 'leg' + (m === 'none' ? ' sel-none' : '');
+}
+
+function changeMonth(d) {
+  calMonth += d;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  renderCal();
+}
+
+function renderCal() {
+  document.getElementById('cal-month-label').textContent = calYear + '年 ' + MONTHS[calMonth];
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+  const first = new Date(calYear, calMonth, 1).getDay();
+  const days = new Date(calYear, calMonth + 1, 0).getDate();
+  for (let i = 0; i < first; i++) {
+    const el = document.createElement('div');
+    el.className = 'dc empty'; grid.appendChild(el);
+  }
+  for (let d = 1; d <= days; d++) {
+    const key = calYear + '-' + calMonth + '-' + d;
+    const type = schedule[key];
+    const isToday = (calYear === todayY && calMonth === todayM && d === todayD);
+    const el = document.createElement('div');
+    el.className = 'dc' + (type ? ' ' + type : '') + (isToday ? ' today' : '');
+
+    const numDiv = document.createElement('div');
+    numDiv.className = 'dc-num';
+    numDiv.textContent = d;
+    el.appendChild(numDiv);
+
+    if (type) {
+      const dayTasks = type === 'work' ? workTasks : offTasks;
+      const dayChecks = calYear === todayY && calMonth === todayM
+        ? checks : [];
+      const tasksDiv = document.createElement('div');
+      tasksDiv.className = 'dc-tasks';
+      dayTasks.forEach((t, ti) => {
+        const tEl = document.createElement('div');
+        tEl.className = 'dc-task' + (dayChecks.includes(ti) ? ' done-task' : '');
+        tEl.textContent = '· ' + t;
+        tasksDiv.appendChild(tEl);
+      });
+      el.appendChild(tasksDiv);
+    }
+
+    el.onclick = () => {
+      if (mode === 'none') delete schedule[key];
+      else schedule[key] = mode;
+      save(); renderCal();
+    };
+    grid.appendChild(el);
+  }
+  renderCalPreview();
+}
+
+function renderCalPreview() {
+  const preview = document.getElementById('cal-task-preview');
+  if (!preview) return;
+  const type = todayType();
+  const tasks = type === 'work' ? workTasks : type === 'off' ? offTasks : [];
+  const mn = todayM + 1;
+
+  if (!type) {
+    preview.innerHTML = '<div style="padding:12px 0 4px;font-size:13px;color:var(--muted);">今日の種別を設定してください</div>';
     return;
   }
 
-  list.innerHTML=data.habits.map((h,idx)=>{
-    const okSet=new Set(h.doneDays||[]),failSet=new Set(h.failDays||[]);
-    const todayOk=okSet.has(today),todayFail=failSet.has(today);
-    const streak=calcStreak(okSet);
-    const okCount=days.filter(d=>okSet.has(d)).length;
-    const failCount=days.filter(d=>failSet.has(d)).length;
-    const rate=Math.round(okCount/28*100);
-
-    const dots=days.map(day=>{
-      const isOk=okSet.has(day),isFail=failSet.has(day),isToday=day===today;
-      let dc='dot';
-      if(isOk&&isToday)dc+=' ok-today';
-      else if(isOk)dc+=' ok';
-      else if(isFail&&isToday)dc+=' fail-today';
-      else if(isFail)dc+=' fail';
-      else if(isToday)dc+=' t-empty';
-      const lbl=day.slice(5).replace('-','/');
-      const st=isOk?'✓断てた':isFail?'✕できなかった':'';
-      return `<div class="${dc}" title="${lbl} ${st}"></div>`;
-    }).join('');
-
-    return `<div class="habit-card" id="card-${idx}" style="animation-delay:${idx*0.05}s">
-      <div class="card-num">— ${String(idx+1).padStart(2,'0')}</div>
-      <div class="card-main">
-        <div class="action-btns">
-          <button class="act-btn ok-btn ${todayOk?'active':''}" onclick="toggleOk(${idx})" title="今日は断てた！">OK</button>
-          <button class="act-btn fail-btn ${todayFail?'active':''}" onclick="toggleFail(${idx})" title="今日はできなかった…">NG</button>
-        </div>
-        <div class="habit-info">
-          <div class="habit-name">${escHtml(h.name)}</div>
-          <div class="stats-row">
-            <div class="stat-block">
-              <div class="stat-num">${streak}${streak>0?`<span class="streak-emoji">${icon(streak)}</span>`:''}</div>
-              <div class="stat-label">連続達成</div>
-            </div>
-            <div class="stat-sep"></div>
-            <div class="stat-block">
-              <div class="stat-num">${okCount}</div>
-              <div class="stat-label">28日・成功</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-num grey">${failCount}</div>
-              <div class="stat-label">28日・失敗</div>
-            </div>
-          </div>
-        </div>
-        <div class="card-right">
-          <div class="rate-badge">${rate}%</div>
-          <button class="delete-btn" onclick="confirmDelete(${idx})">Del</button>
-        </div>
-      </div>
-      <div class="cal-wrap">
-        <div class="cal-label"><span>Past 28 Days</span><span class="cal-rate">${okCount} / 28</span></div>
-        <div class="cal-grid">${dots}</div>
-      </div>
-    </div>`;
-  }).join('');
+  let html = '<div style="padding:12px 0 6px;">';
+  html += '<div class="section-label" style="margin-bottom:8px;">今日のやること（' + mn + '月' + todayD + '日）</div>';
+  if (tasks.length === 0) {
+    html += '<div style="font-size:13px;color:var(--muted);padding:4px 0;">タスクがありません</div>';
+  } else {
+    html += '<div class="task-card" style="margin-bottom:0;">';
+    tasks.forEach((t, i) => {
+      const isDone = checks.includes(i);
+      const isSub = subchecks.includes(i);
+      const color = type === 'work' ? 'var(--work)' : 'var(--off)';
+      html += '<div class="task-row" style="padding:10px 14px;' + (isDone ? 'opacity:0.5;' : '') + '">'
+        + '<div class="chk" style="' + (isDone ? 'background:' + color + ';border-color:' + color + ';' : '') + 'width:18px;height:18px;font-size:10px;">' + (isDone ? '✓' : '') + '</div>'
+        + '<span class="task-lbl" style="font-size:14px;' + (isDone ? 'text-decoration:line-through;color:var(--muted);' : '') + '">' + t + '</span>'
+        + '<div class="sub-chk' + (isSub ? ' on' : '') + '" style="pointer-events:none;">' + (isSub ? '✓' : '') + '</div>'
+        + '</div>';
+    });
+    html += '</div>';
+  }
+  html += '</div>';
+  preview.innerHTML = html;
 }
 
-function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function toggleOk(idx){const data=load(),today=getToday(),h=data.habits[idx];const ok=new Set(h.doneDays||[]),fl=new Set(h.failDays||[]);if(ok.has(today)){ok.delete(today);}else{ok.add(today);fl.delete(today);}h.doneDays=[...ok];h.failDays=[...fl];save(data);render();animPop(`#card-${idx} .ok-btn`);}
-function toggleFail(idx){const data=load(),today=getToday(),h=data.habits[idx];const ok=new Set(h.doneDays||[]),fl=new Set(h.failDays||[]);if(fl.has(today)){fl.delete(today);}else{fl.add(today);ok.delete(today);}h.doneDays=[...ok];h.failDays=[...fl];save(data);render();animPop(`#card-${idx} .fail-btn`);}
-function animPop(sel){const el=document.querySelector(sel);if(!el)return;el.classList.add('pop');el.addEventListener('animationend',()=>el.classList.remove('pop'),{once:true});}
-function addHabit(){const input=document.getElementById('newInput'),name=input.value.trim();if(!name){input.focus();return;}const data=load();data.habits.push({name,doneDays:[],failDays:[]});save(data);input.value='';render();}
-function confirmDelete(idx){const data=load(),name=data.habits[idx].name;const overlay=document.createElement('div');overlay.className='modal-overlay';overlay.innerHTML=`<div class="modal"><p><strong>「${escHtml(name)}」</strong>を削除しますか？<br>記録はすべて消えます。</p><div class="modal-btns"><button onclick="this.closest('.modal-overlay').remove()">Cancel</button><button class="confirm-del" onclick="deleteHabit(${idx});this.closest('.modal-overlay').remove()">Delete</button></div></div>`;document.body.appendChild(overlay);}
-function deleteHabit(idx){const data=load();data.habits.splice(idx,1);save(data);render();}
-document.getElementById('newInput').addEventListener('keydown',e=>{if(e.key==='Enter')addHabit();});
-render();
+function todayType() {
+  return schedule[todayY + '-' + todayM + '-' + todayD] || null;
+}
+
+function renderTasks() {
+  const type = todayType();
+  const tasks = type === 'work' ? workTasks : type === 'off' ? offTasks : [];
+  const banner = document.getElementById('today-banner');
+  const label = document.getElementById('task-section-label');
+  const fill = document.getElementById('progress-fill');
+  const mn = todayM + 1;
+  if (!type) {
+    banner.className = 'today-banner none';
+    banner.textContent = mn + '月' + todayD + '日 — カレンダーで今日の種別を設定してください';
+    label.textContent = '―';
+    fill.style.width = '0%';
+    fill.className = 'progress-fill';
+  } else {
+    banner.className = 'today-banner ' + type;
+    banner.textContent = mn + '月' + todayD + '日は' + (type === 'work' ? '仕事の日' : '休みの日') + 'です';
+    label.textContent = type === 'work' ? '仕事の日のタスク' : '休みの日のタスク';
+    const pct = tasks.length ? Math.round(checks.length / tasks.length * 100) : 0;
+    fill.style.width = pct + '%';
+    fill.className = 'progress-fill' + (type === 'off' ? ' off' : '');
+  }
+
+  const list = document.getElementById('task-list');
+  list.innerHTML = '';
+  if (!type || tasks.length === 0) {
+    const row = document.createElement('div');
+    row.style.cssText = 'padding:18px 16px;font-size:14px;color:var(--muted);';
+    row.textContent = type ? 'タスクがありません。下から追加してください。' : 'カレンダーで今日の種別を設定してください。';
+    list.appendChild(row);
+    return;
+  }
+  tasks.forEach((t, i) => {
+    const isDone = checks.includes(i);
+    const row = document.createElement('div');
+    row.className = 'task-row' + (isDone ? (type === 'off' ? ' done' : ' done-work') : '');
+
+    const chk = document.createElement('div');
+    chk.className = 'chk';
+    chk.textContent = isDone ? '✓' : '';
+    chk.onclick = (e) => {
+      e.stopPropagation();
+      if (checks.includes(i)) checks = checks.filter(x => x !== i);
+      else checks.push(i);
+      save(); renderTasks(); renderCalPreview();
+    };
+
+    const lbl = document.createElement('span');
+    lbl.className = 'task-lbl';
+    lbl.textContent = t;
+
+    const del = document.createElement('button');
+    del.className = 'del-btn';
+    del.textContent = '×';
+    del.onclick = (e) => { e.stopPropagation(); delTask(e, i); };
+
+    const sub = document.createElement('div');
+    sub.className = 'sub-chk' + (subchecks.includes(i) ? ' on' : '');
+    sub.title = '追加チェック';
+    sub.textContent = subchecks.includes(i) ? '✓' : '';
+    sub.onclick = (e) => {
+      e.stopPropagation();
+      if (subchecks.includes(i)) subchecks = subchecks.filter(x => x !== i);
+      else subchecks.push(i);
+      save(); renderTasks(); renderCalPreview();
+    };
+
+    let pressTimer;
+    lbl.addEventListener('pointerdown', () => {
+      pressTimer = setTimeout(() => startEdit(lbl, i, type, tasks), 500);
+    });
+    lbl.addEventListener('pointerup', () => clearTimeout(pressTimer));
+    lbl.addEventListener('pointercancel', () => clearTimeout(pressTimer));
+    lbl.ondblclick = (e) => { e.stopPropagation(); startEdit(lbl, i, type, tasks); };
+
+    row.appendChild(chk);
+    row.appendChild(lbl);
+    row.appendChild(sub);
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+
+  if (tasks.length > 0) {
+    const hint = document.createElement('div');
+    hint.className = 'edit-hint';
+    hint.textContent = '長押し（またはダブルクリック）でテキスト編集';
+    list.appendChild(hint);
+  }
+}
+
+function startEdit(lbl, i, type, tasks) {
+  if (lbl.tagName === 'INPUT') return;
+  const current = tasks[i];
+  const inp = document.createElement('input');
+  inp.type = 'text';
+  inp.value = current;
+  inp.className = 'task-lbl editing';
+  inp.maxLength = 40;
+  lbl.replaceWith(inp);
+  inp.focus();
+  inp.select();
+
+  function commit() {
+    const val = inp.value.trim();
+    if (val && val !== current) {
+      tasks[i] = val;
+      save();
+    }
+    renderTasks();
+  }
+  inp.addEventListener('blur', commit);
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { inp.blur(); }
+    if (e.key === 'Escape') { inp.value = current; inp.blur(); }
+  });
+}
+
+function addTask() {
+  const inp = document.getElementById('add-input');
+  const val = inp.value.trim();
+  if (!val) return;
+  const type = todayType();
+  if (type === 'work') workTasks.push(val);
+  else if (type === 'off') offTasks.push(val);
+  else { alert('先にカレンダーで今日の種別を設定してください。'); return; }
+  inp.value = ''; save(); renderTasks();
+}
+
+function delTask(e, i) {
+  e.stopPropagation();
+  if (!confirm('このタスクを削除しますか？')) return;
+  const type = todayType();
+  if (type === 'work') workTasks.splice(i, 1);
+  else if (type === 'off') offTasks.splice(i, 1);
+  checks = checks.filter(x => x !== i).map(x => x > i ? x - 1 : x);
+  subchecks = subchecks.filter(x => x !== i).map(x => x > i ? x - 1 : x);
+  save(); renderTasks();
+}
+
+function resetToday() {
+  if (!confirm('本日のチェックをリセットしますか？')) return;
+  checks = []; subchecks = []; save(); renderTasks(); renderCalPreview();
+}
+
+// Init
+document.getElementById('hdate').textContent = todayY + '年' + (todayM+1) + '月' + todayD + '日（' + DAYS[now.getDay()] + '）';
+document.getElementById('add-input').addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
+renderCal();
+setMode('work');
 </script>
 </body>
 </html>
